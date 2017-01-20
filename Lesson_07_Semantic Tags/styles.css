@@ -1,0 +1,48 @@
+body {
+	width: 900px;
+	margin: 0 auto;
+}
+h3 {
+	color: green;
+	margin-top: 50px;
+}
+		
+header, footer {
+	padding: 30px 0 30px 0;
+	width: 100%;
+	background: #B3B2CF;
+	text-align: center;
+}
+header {
+	font-size: 33px;
+}
+main {
+	height: 270px;
+	background: #ccc;
+	border: 1px solid gray;
+	margin-bottom: 0;
+}
+section {
+	float: left;
+	padding: 10px;
+	margin: 20px;
+	width: 69%;
+	height: 70px;
+	background: #aaa;
+	border: 1px solid gray;
+}
+aside {
+	position: relative;
+	float: right;
+	padding: 10px;
+	margin: 20px;
+	width: 150px;
+	height: 200px;
+	background: #bbb;
+	border: 1px solid gray;
+}
+footer {
+	clear: both;
+	/*margin-top: 50px;*/
+	font-size: 18px;
+}
