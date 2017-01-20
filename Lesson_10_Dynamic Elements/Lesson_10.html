@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<style>
+		body {
+			width: 800px;
+			margin: 0 auto;
+		}
+		h3 {
+			color: green;
+			margin-top: 50px;
+		}
+	</style>
+
+	<!-- 
+	// Polyfills
+	<script src="modernizr-custom.js"></script>
+	<script>
+		if (!Modernizr.inputtypes.range) {
+			// provide JavaScript implementation
+		}
+	</script> -->
+
+	<script>
+		setInterval(updateProgressBar, 200);
+			function updateProgressBar() {
+				var progressBar = document.getElementById('progressBar');
+
+				progressBar.value += 2;
+			}
+	</script>
+
+	<title>Lesson 10</title>
+</head>
+<body>
+	<h2>Dynamic Elements</h2>
+
+	<h3>Summary and Details Tags</h3>
+
+	<header>
+		This page provides an example of the summary and details tags
+	</header>
+	<details>
+		<summary>Table of contents</summary>
+		<ul>
+			<li>lesson 1</li>
+			<li>lesson 2</li>
+			<li>lesson 3</li>
+			<li>lesson 4</li>
+			<li>lesson 5</li>
+		</ul>
+	</details>
+
+
+	<h3>Progress Bar and Meter</h3>
+
+	<h4>Meter</h4>
+
+	<meter value="5" min="0" max="10">6 our of 10</meter>	
+	<meter value="0.6">60%</meter>
+	<p>
+	<meter value="1" high="8" low="3" min="0" max="10">6 our of 10</meter>
+	<meter low="60" high="80" max="100" value="95"></meter>
+	
+
+	<h4>Progress</h4>
+
+	<progress value="20" max="100" min="0" ></progress>
+
+	<progress id="progressBar" value="0" max="100"></progress>
+
+
+	<h3>Range Element</h3>
+
+	0%<input type="range" name="persentComplete" min="0" max="100" 
+				step="5" value="50">100%
+
+
+	<h4>Go to <a href="Lesson_10_exercise.html">Exercise</a></h4>
+
+</body>
+</html>
