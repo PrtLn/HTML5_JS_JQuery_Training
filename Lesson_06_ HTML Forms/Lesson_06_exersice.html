@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Lesson 6. Exersice</title>
+
+	<style>
+		body {
+			width: 700px;
+			margin: 0 auto;
+		}
+		.fullName {
+			margin-bottom: 5px;
+		}
+		.fullName > label {
+			width: 110px;
+			display: inline-block;
+		}
+		.fullName > input {
+			width: 200px;
+		}
+	</style>
+</head>
+
+<body>
+
+<h3>Exercise</h3>
+
+	<form action="submit.html" method="post">
+		<label for="fullName">Last contacted </label>
+		<input autofocus="on" placeholder="Input Your Name, please" id="fullName" type="text" name="fullName" />		
+
+		<br>
+			<label for="male">Male</label>
+			<input checked type="radio" name="gender" id="male" value="male" />
+			<label for="female">Female</label>
+			<input type="radio" name="gender" id="female" value="female" />
+		
+		<br>
+			<label for="newsletter">Subscribe to newsletter?</label>
+			<input type="checkbox" name="newsletter" value="off" />
+		
+		<br>
+			<label for="notes">Notes</label>
+			<textarea cols="30" rows="5" name="notes"></textarea>
+
+		<br>
+			<label for="dateBirth">Date of birth</label>
+			<input id="dateBirth" type="date" name="dateBirth">
+			
+		<br>
+			<label for="salary">Salary </label>
+			<input type="number" name="salary" step="500">
+
+		<br>
+			<input style="width: 100px;" type="submit" name="submit" />
+
+	</form>
+
+	
+<h4>Go to <a href="Lesson_06.html">Lesson 6</a></h4>	
+
+</body>
+</html>

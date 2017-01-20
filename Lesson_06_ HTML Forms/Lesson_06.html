@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<title>Lesson 6</title>
+</head>
+<body>
+	<h2>HTML Forms</h2>
+
+	<form action="submit.html" method="post">
+		<label for="firstName">First Name: </label>
+		<input id="firstName" type="text" name="firstName" />
+		<p>
+			<label for="lastName">Last Name: </label>
+			<input id="lastName" type="text" name="lastName">
+		<p>
+		<input type="submit" value="Submit">
+
+	</form>
+
+<h3>Adding Fields to a Form</h3>
+	<div id="contactDetails"><h2>Coantact Details</h2>
+		<form method="post">
+			<div class="formRow">
+				<label for="contactName">Contact Name:</label>
+				<input id="contactName" type="text" name="contactName" />
+			</div>
+		</form>
+	</div>
+
+	<div class="formRow">
+		<label for="phoneNumber">Phone Number:</label>
+		<input id="phoneNumber" type="number" name="phoneNumber" />
+	</div>
+
+	<div class="formRow">
+		<label for="emailAddress">Email Address:</label>
+		<input id="emailAddress" type="email" name="emailAddress" />
+	</div>
+
+	<div class="formRow">
+		<label for="companyName">Company Name:</label>
+		<select id="companyName" name="companyName">
+			<option value="-1">Please select</option>
+			<option value="1">ABC Incorporated</option>
+			<option value="2">XYZ Ltd</option>
+			<option value="4" selected>Prime International</option>
+		</select> 
+	</div>
+
+	<div class="formRow">
+		<label for="notes">Notes</label>
+		<textarea cols="40" rows="6" name="notes"></textarea>
+	</div>
+
+	<div class="formRow">
+		<input style="width: 150px;" type="submit" value="Save" />
+	</div>
+
+
+<h3>HTML5 Input Fields</h3>
+	<div class="formRow">
+		<label for="lastContacted">Last contacted</label>
+		<input id="lastContacted" type="date" name="lastContacted" />
+	</div>
+
+
+<h4>Datalist Element</h4>
+
+	<input list="companies" name="companyName" style="background: #ccc;">
+	<datalist id="companies">
+		<option value="ABC Incorporated">
+		<option value="YZ Ltd">
+		<option value="Prime International">
+	</datalist>	
+
+<h4>Form Attributes</h4>
+	<div class="formRow">
+		<label for="contactName">Contact Name:</label>
+		<input autofocus autocomplete="on" id="contactName" type="text" name="contactName" />
+	</div>
+	<div class="formRow">
+		<label for="phoneNumber">Phone Number:</label>
+		<input placeholder="Please, input your phone number" autofocus autocomplete="off" type="tel" name="phoneNumber" />
+	</div>
+
+	<div class="formRow">
+		<label for="emailAddress">Email Address:</label>
+		<input placeholder="Please, input your email" autocomplete="on" type="email" name="emailAddress" />
+	</div>
+
+
+<h4>Go to <a href="Lesson_06_exersice.html">Exercise</a></h4>
+
+</dl>
+</body>
+</html>
