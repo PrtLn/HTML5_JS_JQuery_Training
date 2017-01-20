@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<style>
+		.box {
+			height: 100px;
+			width: 100px;
+			display: inline-block;
+			margin: 20px;
+		}
+		#middleBox1 {
+			position: relative;
+			top: 50px;
+			left: 50px;
+		}
+		#middleBox2 {
+			position: absolute;
+			top: 70px;
+			left: 70px;
+			z-index: -1;
+		}
+		#middleBox3 {
+			position: fixed;
+			top: 100px;
+			left: 100px;
+		}
+	</style>
+	
+	<title>Lesson 5</title>
+</head>
+<body>
+<h2>The Box Model</h2>
+
+<h3>Controlling Positions</h3>
+
+<p>position: relative</p>
+<div style="margin: 30px;">
+	<div class="box" style="background: red;"></div>
+	<div id="middleBox1" class="box" style="background: green;"></div>
+	<div id="lastBox" class="box" style="background: blue;"></div>
+</div>
+
+<p>position: absolute</p>
+<div style="margin: 30px; position: relative;">
+	<div class="box" style="background: red;"></div>
+	<div id="middleBox2" class="box" style="background: green;"></div>
+	<div id="lastBox" class="box" style="background: blue;"></div>
+</div>
+
+<p>position: fixed</p>
+<div style="margin: 30px; position: relative;">
+	<div class="box" style="background: red;"></div>
+	<div id="middleBox3" class="box" style="background: green;"></div>
+	<div id="lastBox" class="box" style="background: blue;"></div>
+</div>
+
+
+<h4><a href="Lesson_05_Display Type.html">Display Type</a></h4>
+
+<h4><a href="Lesson_05_Positioning Elements.html">Positioning Elements</a></h4>
+
+<h4>Go to <a href="contacts.html">Exercise</a></h4>
+
+</body>
+</html>
