@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<style>
+		body {
+			width: 800px;
+			margin: 0 auto;
+		}
+		.box {
+			height: 200px;
+			width: 200px;
+			display: inline-block;
+			border: 2px solid gray;
+		}
+	</style>
+	<title>Lesson 9</title>
+</head>
+<body>
+
+<h2>Drag and Drop</h2>
+	<div ondragend="dragEnded(event)" ondragstart="startDragging(event)" draggable="true" class="box" style="background: #74b816;"></div>
+	<div ondragend="dragEnded(event)" ondragstart="startDragging(event)" draggable="true" draggable="true" class="box" style="background: #66a80f;"></div>
+	<div ondragend="dragEnded(event)" ondragstart="startDragging(event)" draggable="true" draggable="true" class="box" style="background: #5c940d;"></div>
+
+	<p></p>
+
+	<div ondrop="drop(event)" ondragover="allowDrop(event)" 
+		ondragenter="setBorderSize(event, '4px')" ondragleave="setBorderSize(event, '2px')" class="box"></div>
+	<div ondrop="drop(event)" ondragover="allowDrop(event)"
+		ondragenter="setBorderSize(event, '4px')" ondragleave="setBorderSize(event, '2px')" class="box"></div>
+	<div ondrop="drop(event)" ondragover="allowDrop(event)"
+		ondragenter="setBorderSize(event, '4px')" ondragleave="setBorderSize(event, '2px')" class="box"></div>
+
+
+	<h4>Go to <a href="lesson_09_exercise.html">Exercise</a></h4>
+
+</body>
+
+<script>
+	function startDragging(evt) {
+		evt.dataTransfer.setData("Color", evt.target.style.background);
+		evt.target.style.opacity = 0.3;
+	}
+
+	function setBorderSize(evt, size) {
+		evt.currentTarget.style.border = size + " solid gray";
+	}
+
+	function allowDrop(evt) {
+		evt.preventDefault();
+	}
+
+	function drop(evt) {
+		var color = evt.dataTransfer.getData("Color");
+		evt.currentTarget.style.background = color;
+		setBorderSize(evt, '2px');
+	}
+
+	function dragEnded(evt) {
+		evt.target.style.opacity = 1.0;
+	}
+</script>
+
+</html>

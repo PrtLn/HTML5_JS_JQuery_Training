@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<style>
+		body {
+			width: 800px;
+			margin: 0 auto;
+		}
+		.box {
+			height: 200px;
+			width: 500px;
+			display: inline-block;
+			border: 2px dashed gray;
+			line-height: 200px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 26px;
+			color: green;
+			text-align: center;
+			margin: 50px
+		}
+		
+	</style>
+	<title>Lesson 9. Exercise</title>
+</head>
+<body>
+
+<h3>Exercise</h3>
+
+	<div ondrop="drop(event)" ondragover="allowDrop(event)" class="box">Drag something onto me</div>
+
+	<h1 draggable="true" ondragstart="startDragging(event)" >I am a header 1 tag</h1>
+	<h3 draggable="true" ondragstart="startDragging(event)" >I am a header 3 tag</h3>
+	<p draggable="true" ondragstart="startDragging(event)" >I am a p tag</p>
+
+
+	<h4>Go back to <a href="Lesson_09.html">Lesson 9</a></h4>
+
+</body>
+
+<script>
+	function startDragging(evt) {
+		evt.dataTransfer.setData("Text", evt.target.textContent);
+	}
+
+	function allowDrop(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
+	}
+
+	function drop(evt) {
+		var text = evt.dataTransfer.getData("Text");
+		evt.currentTarget.textContent = text;
+	}
+</script>
+
+</html>
