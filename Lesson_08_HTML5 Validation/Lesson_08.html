@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<title>Lesson 8</title>
+</head>
+<body>
+	<h2>HTML5 Validation</h2>
+
+	<h3>Adding Validation Rules</h3>
+
+	<div id="contactDetails"><h2>Contact Details</h2>
+		<form method="post">
+			<div class="formRow">
+				<label for="contactName">Contact Name:</label>
+				<input required autofocus autocomplete="off" id="contactName" class="validated" type="text" name="contactName" pattern=".{5,15}" />
+			</div>
+		
+			<div class="formRow">
+				<label for="phoneNumber">Phone Number:</label>
+				<input required pattern="[0-9() ]{5,15}" placeholder="Include area code" name="phoneNumber" type="tel" id="phoneNumber" class="validated" />
+			</div>
+
+			<div class="formRow">
+				<label for="emailAddress">Email Address:</label>
+				<input required name="emailAddress" id="emailAddress" type="email" class="validated" />
+			</div>
+
+			<div class="formRow">
+				<label for="companyName">Company Name:</label>
+				<select required id="companyName" name="companyName" class="validated">
+					<option value="">Please select</option>
+					<option value="1">ABC Incorporated</option>
+					<option value="2">XYZ Ltd</option>
+					<option value="4">Prime International</option>
+				</select> 
+			</div>
+
+			<div class="formRow">
+				<label for="notes">Notes</label>
+				<textarea cols="40" rows="6" name="notes" id="notes" class="validated" maxlength="200"></textarea>
+			</div>
+
+			<div class="formRow">
+				<input style="width: 150px;" type="submit" value="Save" />
+			</div> 
+
+		</form>
+	</div>
+
+	<h4>Go to <a href="Lesson_08_exersice.html">Exercise</a></h4>
+
+</body>
+
+<script>
+var contactName = document.getElementById('contactName')
+contactName.oninvalid = function(e) {
+	e.target.setCustomValidity("");
+	if (e.target.validity.valid == false) {
+		if (e.target.value.length == 0) {
+			e.target.setCustomValidity("Contact name is required.");
+		} else if (e.target.value.length < 5) {
+			e.target.setCustomValidity("Contact name must be at least 5 characters.");
+		}
+	}
+};
+</script>	
+
+</html>

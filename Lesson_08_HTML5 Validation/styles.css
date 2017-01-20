@@ -1,0 +1,40 @@
+body {
+	width: 700px;
+	margin: 0 auto;
+}
+h3 {
+	color: green;
+	margin-top: 50px;
+}
+dd {
+	color: gray; 
+}
+
+/* */
+label {
+	width: 150px;
+	display: inline-block;
+	vertical-align: top;
+}
+input {
+	width: 200px;
+}
+.formRow {
+	margin-bottom: 10px;
+}
+.green {
+	color: green;
+	font-weight: bold;
+}
+h4 {
+	color: #666;
+	font-size: 1.1em;
+}
+
+/* Adding Validation Rules */
+.validated:invalid {
+	background-color: #FAC3C9;
+}
+.validated:valid {
+	background-color: #BDF0A9;
+}
