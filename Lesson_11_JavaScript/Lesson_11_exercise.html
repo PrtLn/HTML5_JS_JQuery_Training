@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 11. Exersice</title>
+</head>
+<body>
+	
+</body>
+<script>
+/* Exercise 1 */
+/* function will return the reverse of the string "hello" */
+
+	function reverse(value) {
+		if (typeof value != "string") {
+			throw "Value must be a string !"
+		}
+		var result = "";
+		for (var i = 0; i < value.length; i++) {
+			var count = value.charAt(value.length - i - 1);
+			result = result + count;
+		}
+		return result;
+	}
+
+	console.log(reverse("hello"));
+	// console.log(reverse());        // ! value must be a string
+
+
+/* Exercise 2 */
+/* function will accept an array of numbers, and return true 
+	if the sum of all the positive numbers is greater 
+	than the sum of the absolute value of the negative nambers */
+
+	function calculateSums(numbers){
+		var positive = 0,
+			negative = 0;
+		for (var i = 0; i < numbers.length; i++) {
+			var counter = numbers[i];
+			if (counter >= 0) {
+				positive = positive + counter;
+			} else {
+				negative = negative + Math.abs(counter);
+			}
+		}
+		return positive > negative;
+	}
+
+	console.log(calculateSums([-1,2]));    // true
+	console.log(calculateSums([-1,2,-3])); // false
+	console.log(calculateSums([1,-2,3]));  // true
+
+</script>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 11</title>
+</head>
+<body>
+	<p id="str">Welcome to JavaScript</p>
+
+	<h4>Go to <a href="Lesson_11_exercise.html">Exercise</a></h4>
+
+</body>
+
+<script>
+/* Data Types */
+
+/* Strings */
+	var s1 = "Welcome to JavaScript";
+	// alert(typeof(s1));
+
+		strModify1 = document.getElementById('str');
+
+		console.log(strModify1.toString().toLowerCase()); // [object htmlparagraphelement]
+
+		str1 = "Modify String";
+		
+		console.log(str1.toUpperCase()); // MODIFY STRING
+		console.log(str1.toLowerCase()); // modify string
+		console.log(str1.substr(0, 4));  // Modi
+		console.log(str1.indexOf('i'));  // 3
+		console.log(str1.length);        // 13
+		console.log(str1.replace('String', 'Life')); // Modify Life
+
+	s2 = s1 + " Let`s get started";
+	console.log(s2);  // Welcome to JavaScript Let`s get started
+
+	s1 = s1 + " Let`s get started";
+	console.log(s1);  // Welcome to JavaScript Let`s get started
+
+	s3 = 'This is Dane\'s code';
+	console.log(s3);  // This is Dane's code
+
+
+/* Numbers */
+	
+	n1 = 200;
+	n2 = 2.4568344;
+
+	console.log(typeof n1);       // number
+
+	console.log(n1 * (200 + n2)); // 40491.36688
+
+	console.log(Math.pow(3, 2));  // 9
+	console.log(Math.round(n2));  // 2
+
+	// Number.POSITIVE_INFINITY
+	n3 = 100 / 0;
+	console.log(n3);              // Infinity
+
+	// Number.NEGATIVE_INFINITY
+	n3 = -100 / 0;
+	console.log(n3);              // -Infinity
+
+	// NaN
+	n3 = 1 / 'hello';
+	console.log(n3);              // NaN
+	console.log(Math.sqrt(-1));   // NaN
+
+	if (isNaN(Math.sqrt(-1))) {
+		console.log(true);        // true
+	}
+
+
+/* Booleans */
+
+	b1 = true;
+	b2 = false;
+
+	console.log(10 > 5);  // true
+
+
+/* Null - data type */
+	
+	n1 = 200;
+	n1 = "Testing";
+	n1 = null;
+
+	console.log(n1);        // null
+	console.log(typeof n1); // object
+
+
+/* Undefined */
+	
+	console.log(typeof newNumber);  // undefined
+
+
+/* Arrays */
+
+	a1 = [];
+	console.log(a1);   // []
+
+	a1 = [1,2,3,4,5];
+	console.log(a1);   // [1,2,3,4,5]
+
+	a1[2] = 20;
+	a1[1] = "hello";
+	console.log(a1);   // [1, "hello", 20, 4, 5]
+
+	a1.push(200);
+	console.log(a1);   // [1, "hello", 20, 4, 5, 200]
+
+	a1.sort();
+	console.log(a1);  // [1, 20, 200, 4, 5, "hello"]
+
+/* Objects */
+
+/* Functions */
+
+	function doubleTheNumber(num) {
+		var result = num * 2;
+		return result;
+	}
+
+	console.log(doubleTheNumber(9)); // 18
+
+
+/* Control Structures */
+
+/* for loop */
+	a1 = [3,5,7,2,9,2];
+	var result = 0;
+	for (var i = 0; i < a1.length; i++) {
+		result = result + a1[i];
+	}
+	/*for (var i = 0; i < a1.length; i++) {
+		console.log('The value of i is ' + i);
+		console.log('The value in the array is ' + a1[i]);
+		result = result + a1[i];
+	}*/
+	console.log(result);  // 28
+
+/* while loop */
+	var result = 0;
+	var counter = 0;
+	while (counter <a1.length) {
+		result = result + a1[counter];
+		counter++;
+	}
+	console.log(result);  // 28
+
+/* continue and break */
+	function checkCountEven(a1, n1) {
+		var result = false;
+		var count = 0;
+		for (var i = 0; i < a1.length; i++) {
+			var number = a1[i];
+			if (number % 2 != 0) {
+				continue;
+			}
+			count = count + number;
+			if (count > n1) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+	// if sum of the all even numbers in array more than n1
+	a1 = [3,6,4,1,4,9]
+	console.log(checkCountEven(a1, 20));  // false 
+	console.log(checkCountEven(a1, 10));   // true
+
+/*Conditional expressions */
+	function describeNumber(num) {
+		if (num >= 0 && num % 2 == 0) {
+			console.log(num + ' is a positive even number');
+		} else if (num >= 0 && num % 2 == 1) {
+			console.log(num + ' is a positive odd number');
+		} else if (num < 0 && num % 2 == 0) {
+			console.log(num + ' is a negative even number');
+		} else {
+			console.log(num + ' is a negative odd number');
+		}
+	}
+	describeNumber(45); // 45 is a positive odd number
+	describeNumber(10); // 10 is a positive even number
+	describeNumber(-3); // -3 is a negative odd number
+	describeNumber(-6); // -6 is a negative even number
+
+/* Truthy and Falsy Values*/
+	function whatAmI(v1) {
+		if (v1) {
+			console.log("I am true");
+		} else {
+			console.log("I am false");
+		}
+	}
+	whatAmI("hello"); // I am true
+	whatAmI(" ");     // I am true
+	whatAmI(22);      // I am true
+	whatAmI(null);    // I am false
+	whatAmI(8 + 9);   // I am true
+	whatAmI(0);       // I am false
+
+	/* false, 0(zero), ""(empty string), null, undefined - are not true,
+		NaN is neither true or false, which is why isNaN function is needed to detected it 
+	*/
+
+	function whatAmINow(v1) {
+		console.log("And now I am " + !!v1);
+	}
+
+	whatAmINow(555); // And now I am true
+	whatAmINow();    // And now I am false
+	whatAmINow(" "); // And now I am true
+
+	if (s1) {
+		console.log(s1); // Welcome to JavaScript Let`s get started
+	}
+
+/* Dynamic Typing */	
+
+	function add(n1, n2) {
+		return n1 + n2;
+	}
+	console.log(add(5,'0'));        // 50
+
+	console.log(add(1,[]));         // "1"
+	console.log(typeof add(1,[]));  // string
+	console.log(add(1,true));       // 2
+
+
+	function addStrong(v1, v2) {
+		if (typeof v1 === "number" && typeof v2 === "number") {
+			return v1 + v2;
+		} else {
+			throw "both arguments must be numbers";
+		}
+	}
+	console.log(addStrong(5,1));    // 6
+	//console.log(addStrong(5,'0'));  // ! Uncaught both arguments must be numbers
+
+</script>
+</html>
