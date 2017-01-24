@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 16</title>
+
+	<style>
+		ol {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<h1 class="mainHeader">This is the title</h1>
+
+	<ol id="daysOfWeek">
+		<li>Monday</li>
+		<li>Tuesday</li>
+		<li>Wednesday</li>
+		<li>Thursday</li>
+		<li>Friday</li>
+	</ol>
+
+	<h4>Go to <a href="contacts.html">Exercise</a></h4>
+	
+</body>
+
+<script>
+	
+/* Document Object Model */
+
+/* Nodes and Objects */
+
+	// document
+	// element
+	// attr
+	// text 
+
+/* Selecting Elements */
+
+	document.getElementById('daysOfWeek');  // <ol>..<li>....</li></ol>
+
+	document.getElementById('daysOfWeek').nodeType;   // 1 
+	// (1 represents an element node, 2 represents an attribute node, 3 represents a text node, and so on)
+
+	document.getElementById('daysOfWeek').nodeName;  // "OL"
+
+	document.getElementsByClassName('mainHeader');   // [h1.mainHeader]
+
+	document.getElementsByTagName('li');   // [li, li, li, li, li]
+
+	document.getElementsByTagName('ol')[0].nodeName;  // "OL"
+
+
+/* Traversing the DOM */
+
+	// obtain a reference to the daysOfWeek node
+	o = document.getElementById('daysOfWeek');  // <ol id="daysOf Week">...</ol>
+
+	// find all the children for this node (i.e., the li elements)
+	o.childNodes;   // [text, li, text, li, text, li, text, li, text, li, text]
+
+	// find the parent of this node, i.e., the body element
+	o.parentNode;   // <body>...</body>
+
+	//find the first child of this node
+	o.firstElementChild;  // <li>Monday</li>
+
+	// traverse from the document node to the body node
+	document.body;  // <body>...</body>
+
+
+/* Manipulating the DOM */
+	
+	newLi = document.createElement('li');  // <li></li>
+	saturday = document.createTextNode("Saturday");  // "Saturday"
+	newLi.appendChild(saturday);  // "Saturday"
+	document.getElementById('daysOfWeek').appendChild(newLi);  // <li>Saturday</li>
+
+/* Responding to Events */	
+
+	// add two event listeners to the h1 element, 
+		// one is fired when the mouse enters the box of the header element,
+		//  the other fires when the mouse leaves the box
+	document.getElementsByClassName('mainHeader')[0].
+		addEventListener("mouseenter", function(event) {
+			document.getElementById('daysOfWeek').style.display = 'block';
+	});
+
+	document.getElementsByClassName('mainHeader')[0].
+		addEventListener("mouseenter", function(event) {
+			document.getElementById('daysOfWeek').style.color = 'red';
+	});
+
+</script>
+</html>
