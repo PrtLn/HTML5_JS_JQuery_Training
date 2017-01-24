@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 14</title>
+</head>
+<body>
+	
+	<h4>Go to <a href="contacts.html">Exercise</a></h4>
+
+</body>
+
+<script>
+
+/* Objects */	
+
+	/* Object Literals */
+
+	o = {
+		firstName : 'Dane',
+		lastName : 'Cameron',
+		getFullName : function() {
+			return this.firstName + ' ' + this.lastName;
+		}
+	}
+
+	o.firstName    // "Dane"
+	o['firstName'] // "Dane"
+
+	// property names contain spaces? theuy must be declared between quotes
+	o1 = {
+		'first name' : 'Dane',   
+		'last name' : 'Cameron'
+	}
+	// to access these properties is with th square bracket notation
+	o1['first name'];  // "Dane"
+
+
+	// to invoke the method of that object
+	o.getFullName();  // "Dane Cameron"
+
+	// add and redefine additional properties or methods to object
+	o.profession = "Software Developer";
+	o.getFullName = function() {
+		return this.firstName + " " + this.lastName + " (" + this.profession + ")";
+	}
+
+	o.getFullName();   // "Dane Cameron (Software Developer)"
+
+	o2 = o;
+	o2.getFullName();  // "Dane Cameron (Software Developer)"
+
+
+/* Prototypes */
+
+	o = {};
+	o.toString();  // "[object Object]"
+
+
+	Array.prototype.contains = function(val) {
+		for (var i = 0; i < this.length; i++) {
+			if (this[i] === val) {
+				return true;
+			}
+		}
+		return false;
+	}
+	// Array.prototype allows to access the object that acts as the prototype to all arrays
+
+	a3 = [1,5,4,8,6];
+
+	a3.contains(8);  // true
+	a3.contains(10); // false
+
+
+	staffPrototype = {
+		increasePay : function(percentage) {
+			return salary = this.salary + ((this.salary * percentage) / 100);
+		},
+		getFullName : function() {
+			return this.firstName + " " + this.lastName + " (" + this.profession + ")";
+		}
+	}
+
+	// to set this object as the prototype for other objects
+	function extend(obj) {
+		function T() {};
+		T.prototype = obj;
+		return new T();
+	}
+
+	s4 = extend(staffPrototype);  // T {}
+
+	// add properties to s4
+	s4.firstName = "Morgan";
+	s4.lastName = "Tomas";
+	s4.salary = 50000;
+	s4.profession = "Graphic Designer";
+
+	s4.getFullName();  // "Morgan Tomas (Graphic Designer)"
+
+	s4.increasePay(10); // 55000
+
+
+	s5 = extend(staffPrototype);
+	s5.firstName = "Jan";
+	s5.lastName = "Cook";
+	s5.salary = 40000;
+	s5.profession = "Engineer";
+
+	// prtotypes are read-only, redefining method has the effect only for the s5 instance
+	s5.getFullName = function() {
+		return this.lastName + ", " + this.firstName + " (" + this.profession + ")";
+	}
+	
+	s5.getFullName();  // "Cook, Jan (Engineer)"
+
+	s4.getFullName();  // "Morgan Tomas (Graphic Designer)"
+
+
+/* Constructor Functions */
+
+	function Staff(firstName, lastName, salary, profession) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.salary = salary;
+		this.profession = profession;
+	}
+
+	s6 = Staff("Brian", "Downing", 555000, "Software Tester");   // undefined
+
+	console.log(firstName);  // Brian
+
+	console.log(salary);     // 555000
+
+
+/* Modules */
+
+	s5.salary = 10000000000000;
+
+	// to control the values
+	s5.updateSalary = function(newSalary) {
+		if (newSalary > 0 && newSalary < 200000) {
+			this.salary = newSalary;
+		} else {
+			throw 'The salary must be between 0 and 200000';
+		}
+	}
+
+/* module design pattern */
+
+	function createStaffMember(initialSalary, firstName, lastName) {
+		var salary = null;
+		o = {
+			setSalary : function() {
+				if (initialSalary > 0 && initialSalary < 200000) {
+					salary = initialSalary;
+				} else {
+					throw 'The salary must be between 0 and 200000';
+				}
+			},
+			getSalary : function() {
+				return salary;
+			},
+			firstName : firstName,
+			lastName : lastName
+		};
+		o.setSalary(initialSalary);
+		return o;
+	}
+
+	s6 = createStaffMember(50000, 'Tom', 'Braitwhite');
+
+	s6.salary = 10000000000000;
+
+	s6.getSalary();  // 50000
+
+</script>
+</html>
