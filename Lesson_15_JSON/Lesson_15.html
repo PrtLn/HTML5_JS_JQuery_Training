@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 15</title>
+</head>
+<body>
+	
+	<h4>Go to <a href="Lesson_15_exercise.html">Exercise</a></h4>
+
+</body>
+
+<!-- XML representation of a contact -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<contact>
+	<contactName>William Jones</contactName>
+	<phoneNumber>555-5555</phoneNumber>
+	<emailAddress>william@testing.com</emailAddress>
+	<company>
+		<code>123</code>
+		<name>ABC Incorporated</name>
+	</company>
+	<notes></notes>
+	<lastContacted>2017-01-24</lastContacted>
+</contact>
+
+<!-- 
+// JSON representation of a contact (filename.json)
+
+	{
+	    "contactName":"William Jones",
+	    "phoneNumber":"555-2941",
+	    "emailAddress":"william@testing.com",
+	    "company":{
+	        "code":123,
+	        "name":"ABC Incorporated"
+	    },
+	    "notes":"These are my notes",
+	    "lastContacted":"2014-06-30T05:50:46.659Z"
+	}
+ -->
+
+<script>
+
+/* JSON */
+
+	contact = {
+		contactName : "William Jones",
+		phoneNumber : "555-5555",
+		emailAddress : "william@testing.com",
+		company : {
+			code : 123,
+			name : "ABC Incorporated"
+		},
+		notes : null,
+		lastContacted : new Date()
+	}
+
+	contactString = JSON.stringify(contact); // "{"contactName":"William Jones","phoneNumber":"555-5555","emailAddress":"william@testing.com","company":{"code":123,"name":"ABC Incorporated"},"notes":null,"lastContacted":"2017-01-24T07:06:40.941Z"}"	
+
+	typeof contact;  // "object"
+
+	contact.contactName;  // "William Jones"
+
+
+/* Replacing and Reviving */
+
+	new Date().getTime();  // 1485242469131 
+						   //(the time in milliseconds that have passed since midnight on January 1, 1970)
+
+	new Date().toString(); // "Tue Jan 24 2017 09:24:12 GMT+0200 (FLE Standard Time)"
+
+	new Date().toJSON();   // "2017-01-24T07:26:12.264Z"
+
+
+	parseContactString = JSON.parse(contactString); // Object {company : Object, contactName : "William Jones", emailAddress : "william@testing.com", lastContacted : "2017-01-24T07:32:25.553Z", notes : null, phoneNumber : "555-5555"}
+
+
+/* to parse dates with a reviver function */
+	 dateReviver = function(name, value) {
+	 	var regExp = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/
+
+	 	if (value && typeof value === 'string' && value.match(regExp)) {
+	 		return new Date(value);
+	 	} else {
+	 		return value;
+	 	}
+	 }
+
+	 contact2 = JSON.parse(contactString, dateReviver);
+
+	 typeof contact2.lastContacted;     // "object"
+
+	 contact2.lastContacted.toString(); // "Tue Jan 24 2017 09:46:44 GMT+0200 (FLE Standard Time)"
+
+</script> 
+</html>

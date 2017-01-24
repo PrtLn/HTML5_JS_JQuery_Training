@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 15. Exercise</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+	
+	obj = {
+		studentName : 'William Jones',
+		school : 'Middletown High School',
+		grades : [
+			{subject : 'English',
+			grade : 'A'},
+			{subject : 'Algebra',
+			grade : 'B+'},
+			{subject : 'Geometry',
+			grade : 'C'}
+			]
+	}
+
+	JSON.stringify(obj);  // "{"studentName":"William Jones","school":"Middletown High School","grades":[{"subject":"English","grade":"A"},{"subject":"Algebra","grade":"B+"},{"subject":"Geometry","grade":"C"}]}"
+
+	obj2 = obj;
+
+	obj2.studentName = "Johny Boil";
+
+		obj.studentName;  // "Johny Boil"
+
+
+	// function that clones object (and then we could change clone object and they will be differen)
+	function clone(object) {
+		var newObj = JSON.stringify(object);
+		var newStudent = JSON.parse(newObj);
+		return newStudent;
+	}	
+
+	obj3 = clone(obj);
+
+		obj3; // Object {studentName: "Johny Boil", school: "Middletown High School", grades: Array[3]}
+
+	obj3.studentName = "Georg Adams";
+
+		obj3; // Object {studentName: "Georg Adams", school: "Middletown High School", grades: Array[3]}
+
+		obj;  // Object {studentName: "Johny Boil", school: "Middletown High School", grades: Array[3]}
+
+</script>
+
+</html>
