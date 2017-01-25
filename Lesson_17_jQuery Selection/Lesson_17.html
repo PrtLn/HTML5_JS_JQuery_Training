@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 17</title>
+	<link rel="stylesheet" type="text/css" href="contacts.css">
+
+	<!-- <script src="jquery-3.1.1.min.js"></script> -->
+
+	<script src=http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js></script>
+
+</head>
+<body>
+	<header>Contacts</header>
+	
+	<div id="contactScreen">
+
+		<section id="contactDetails"><h2>Contact details</h2>
+			<form method="post">
+				<div class="formRow">
+					<label for="contactName">Contact name</label>
+					<input required autofocus autocomplete="off" name="contactName" type="text" class="validated" id="contactName" pattern=".{5,100}"/>
+				</div>
+
+				<div class="formRow">
+					<label for="phoneNumber">Phone number</label>
+					<input required pattern="[0-9() ]{5,15}" placeholder="Include area code" name="phoneNumber" type="tel"   id="phoneNumber" class="validated" />
+				</div>
+
+				<div class="formRow">
+					<label for="emailAddress">Email address</label>
+					<input required name="emailAddress" id="emailAddress" type="email" class="validated"/>
+				</div>
+
+				<div class="formRow">
+					<label for="companyName">Company name</label>
+					<select required name="companyName" class="validated">
+						<option value="">Please select</option>
+						<option value="1">ABC Incorporated</option>
+						<option value="2">XZY Ltd</option>
+						<option value="3">ACME International</option>
+					</select>
+				</div>
+
+				<div class="formRow">
+					<label for="notes">Notes</label>
+					<textarea cols="40" rows="6" name="notes" class="validated" maxlength="1000"></textarea>
+				</div>
+
+				<div class="formRow">
+					<label for="lastContacted">Last contacted</label>
+					<input name="lastContacted" type="date" class="validated"/>
+				</div>
+
+				<div class="formRow">
+					<input style="width:70px" type="submit" value="Save"/>
+				</div>
+			</form>
+		</section>
+
+		<section id="contactList">
+		<table>
+			<thead>
+				<th>Contact name</th>
+				<th>Phone number</th>
+				<th>Email address</th>
+				<th>Company name</th>
+				<th>Last contacted</th>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>William Smith</td>
+					<td>555-642-737</td>
+					<td>william@testing.com</td>
+					<td>ACME Industries</td>
+					<td>
+						<time datetime="2016-10-21">2016-10-21</time>
+					</td>
+				</tr>
+				<tr>
+					<td>Bob Morris</td>
+					<td>555-999-299</td>
+					<td>bob@testing.com</td>
+					<td>ABC Corp</td>
+					<td>
+						<time datetime="2014-09-16">2014-09-16</time>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5">2 contacts displayed</td>
+				</tr>
+			</tfoot>
+			<caption>Sales leads</caption>
+		</table>
+
+		<div class="controls">
+		    <a href="#" id="addContact">Add a new contact</a>
+		</div>
+
+	</section>
+
+	</main>
+
+	<footer>Copyright 2014</footer>
+
+	<h4>Go to <a href="contacts.html">Exercise</a></h4>
+	
+</body>
+
+<script>
+
+/* jQuery Selection */
+
+// Loading jQuery
+
+	console.log(jQuery);  // function (a,b){return new r.fn.init(a,b)}
+
+
+// Selecting Elements
+
+	$('selection string');       // select elements by placing a selection string
+	jQuery('selection string');  // alternative -> $('selection string'); 
+
+	$('td');  // select all the td elements from the document
+
+	$('#contactList');  // select element by ID
+
+	$('.controls');  // select element by class
+
+	$('[datetime]');  // select all elements with a particular attribute
+
+	$('time[datetime]'); 
+
+	$('time[datetime="2014-09-16"]');   // select by specific value
+
+	$('time[datetime!="2014-09-16"]');  // select by specific value (opposite)
+
+
+// Pseudo-selectors
+
+	$('tbody tr:even'); // select all the even numbered tr elements
+
+		// some of the most useful pseudo-selectors:
+			// :even - finds all even numbered elements
+			// :odd  - finds all odd numbered elements
+			// :not(selection) - finds all elements that do not match the selection
+			// :gt(selection) - finds all elements with an index greater than the supplied number
+			// :checked - finds radio buttons or check boxes that are checked
+			// :selected - finds options in select boxes that are selected
+			// :contains(text) - finds elements that contain a given piece of text
+			// :empty - finds all elements that have no children
+			// :focus - finds the element that currently has focus
+			// :first - finds the first element in a set
+			// :last - finds the last element in a set
+
+	$('selection:first'); // select first section in the web page
+
+	$('tr:gt(0)'); // finds all the tr elements, except the first one
+
+	$(':input'); // returns all the form input fields, including fields that do not use the input element(e.g. select and textarea)
+
+	$('input,select,textarea'); // alternative -> $(':input');
+
+
+	$('input[type="email"]');
+
+	// code that to add your own special pseudo-selector called email
+	$.expr[':'].email = function(elem) {
+		return $('elem').is("input") && $(elem).attr("type") === "email";
+	}
+	
+	$(':email');  // // invoke this code
+
+	$('form :email');  // combined with other selectors
+
+
+// Selection Within a Context
+
+	$('tbody tr:even'); // finds all the tr elements that are children of tbody elements
+
+	// find method
+
+	$('#contactScreen').find('tr'); // find the element with the ID contactScreen and then any tr elements inside
+
+	$('tr', '#contactScreen');  // alternative -> $('#contactScreen').find('tr'); 
+
+
+// Wrapped Objects
+
+	$('#contactScreen').find('tr'); // DOM objects do not support a find method (returns all tr)
+
+	var domObject = $('td')[0];
+
+	$(domObject); // (returns first tr)
+
+	$(domObject).text();  // returns the text of the element -> "William Smith"
+
+	$(domObject).is(':contains("contacts")'); // is the text of the element contains the word "contacts" -> false
+
+	$(domObject).is(':contains("Smith")'); //  -> true
+
+</script>
+</html>
