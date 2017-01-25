@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 18</title>
+
+	<link rel="stylesheet" type="text/css" href="contacts.css">
+
+	<style>
+		h2 {
+			text-decoration: none;
+		}
+	</style>
+
+	<script src="jquery-3.1.1.min.js"></script>
+	<script src=http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js></script>
+
+</head>
+<body>
+	
+	<header>Contacts</header>
+	
+	<div id="contactScreen">
+
+		<section id="contactDetails"><h2>Contact details</h2>
+			<form method="post">
+				<div class="formRow">
+
+					<!-- <label for="contactName" style="color: red;">
+						Contact name<span class="requiredMarker">*</span>
+					</label> -->
+
+					<label for="contactName">
+						Contact name
+					</label>
+
+					<input required autofocus autocomplete="off" name="contactName" type="text" class="validated" id="contactName" pattern=".{5,100}"/>
+				</div>
+
+				<div class="formRow">
+					<label for="phoneNumber">Phone number</label>
+					<input required pattern="[0-9() ]{5,15}" placeholder="Include area code" name="phoneNumber" type="tel"   id="phoneNumber" class="validated" />
+				</div>
+
+				<div class="formRow">
+					<label for="emailAddress">Email address</label>
+					<input required name="emailAddress" id="emailAddress" type="email" class="validated"/>
+				</div>
+
+				<div class="formRow">
+					<label for="companyName">Company name</label>
+					<select required name="companyName" class="validated">
+						<option value="">Please select</option>
+						<option value="1">ABC Incorporated</option>
+						<option value="2">XZY Ltd</option>
+						<option value="3">ACME International</option>
+					</select>
+				</div>
+
+				<div class="formRow">
+					<label for="notes">Notes</label>
+					<textarea cols="40" rows="6" name="notes" class="validated" maxlength="1000"></textarea>
+				</div>
+
+				<div class="formRow">
+					<label for="lastContacted">Last contacted</label>
+					<input name="lastContacted" type="date" class="validated"/>
+				</div>
+
+				<div class="formRow">
+					<input style="width:70px" type="submit" value="Save"/>
+				</div>
+			</form>
+		</section>
+
+		<section id="contactList">
+		<table>
+			<thead>
+				<th>Contact name</th>
+				<th>Phone number</th>
+				<th>Email address</th>
+				<th>Company name</th>
+				<th>Last contacted</th>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>William Smith</td>
+					<td>555-642-737</td>
+					<td>william@testing.com</td>
+					<td>ACME Industries</td>
+					<td>
+						<time datetime="2016-10-21">2016-10-21</time>
+						<div class="overlay">These are my notes for William</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Bob Morris</td>
+					<td>555-999-299</td>
+					<td>bob@testing.com</td>
+					<td>ABC Corp</td>
+					<td>
+						<time datetime="2014-09-16">2014-09-16</time>
+						<div class="overlay">These are my notes for Bob</div>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5">2 contacts displayed</td>
+				</tr>
+			</tfoot>
+			<caption>Sales leads</caption>
+		</table>
+
+		<div class="controls">
+		    <a href="#" id="addContact">Add a new contact</a>
+		</div>
+
+	</section>
+
+	</main>
+
+	<footer>Copyright 2014</footer>
+
+
+	<div class="toggle1">Some Text</div>
+
+	<script>
+		$('div.toggle1').toggleClass('toggle2').css('text-decoration', 'underline'); // both classes (toggle1 and toggle2)
+		$('div.toggle1').toggleClass('toggle2').css('color', 'green').css('text-decoration', 'none'); // toggle1 class
+	</script>
+
+
+	<h4>Go to <a href="contacts.html">Exercise</a></h4>
+	
+</body>
+
+<script>
+	
+// jQuery Traversal and Manipulation 
+
+	// Traversal
+
+	// find all the time elements, and then find their parents
+	$('time').parent(); // [td, td]
+
+	// returns the form that is the parent of all the input field
+	$(':input').parents('form'); // [form]
+
+	// Add the previous set of elements on the stack to the current set, 
+	// optionally filtered by a selector.
+	$(':input').parents('form').addBack();  // [form, input#contactName.validated, input#phoneNumber.validated, input#emailAddress.validated, select.validated, textarea.validated, input.validated, input]
+
+	// selects elements that are siblings of other elements
+	$(':input[required]').siblings('label'); // [label, label, label, label]
+
+
+		// other traversal functions that find spesific siblings
+			// last - find the last sibling
+			// first - find the first sibling 
+			// next - find the next sibling
+			// prev - find the previous sibling
+
+			// add - to join together two different selections
+			$(':input').add('label'); // to create a selection list of all the input fields and all the labels
+
+			// closest - finds the closest ancestor of an element by specific criteria
+			$(':contains("Bob")').closest('td'); // [td]
+
+			// eq - the equals operator can be used to return the element at a specific index
+			$('section').eq(1);  // [section#contactList]
+
+
+	// Chaning
+
+	// to chain together a whole set of traversal functios in a single statement
+	$('time').siblings('.overlay').parents('tr').last();  // select the last elenment (time) in the tr element in the element by overlay class in the timt element
+
+
+	// Manipulation
+
+	// selects all the labels of input fields that had the required attribute
+	$(':input[required]').siblings('label'); // [label, label, label, label]
+
+	// changes the text of labels such as this to display in red 
+	$(':input[required]').siblings('label').css('color', 'green');
+
+	$('<span>').text('*').addClass('requiredMarker');
+
+	$(':input[required]').siblings('label[for="contactName"]').append($('<span>').text('*').addClass('requiredMarker').css('color', 'red'));
+
+
+	// adding elements to DOM
+	$('h2').before('<span>before</span>');
+
+	$('h2').prepend('<span>prepend</span>');
+
+	$('h2').after('<span>after</span>');
+
+
+	// remove nodes from the DOM
+	$(':input[required]').siblings('label[for="phoneNumber"]').append($('<span>').text('**/\\**').addClass('mountain').css('color', 'blue'));
+
+	$('.mountain').remove();
+
+
+	// Changing Elements
+
+	// directly manipulate the text of an element
+	$('#contactDetails h2').text('CONTACT DETAILS');
+	// or
+	$('#contactDetails h2').html('<span>New Contacts</span>');
+
+	// wrapping element by tag
+	// $('#contactDetails h2').wrapInner('<span>');
+	$('#contactDetails h2 span').css('color', 'orange');
+
+	// to set the value of form inputs using the val function
+	$('[name="phoneNumber"]').val('testing 123');
+
+	$('[name="emailAddress"]').val();
+
+
+	// removeClass method
+	$('h2').text('*******').addClass('markerAsteriks').css('color', 'gray');
+	
+	// $('label span').removeClass('.requiredMarker');
+	// $('label span').css('color', 'black');
+
+	$('h2').removeClass('markerAsteriks');
+	$('.markerAsteriks').text('contacts').css('color', 'red'); // not any result, couse class is not exists, but h2 element it is
+	$('h2').text('contacts').css('color', 'red');
+
+
+	// toggleClass function
+
+
+	// change and remove attribute of the element
+	$('textarea').attr('maxlength'); // 
+
+	$('textarea').attr('maxlength', 10);
+
+	$('textarea').removeAttr('maxlength');
+
+	
+	// Iteration
+
+	// function contactsScreen(mainID) {
+	// 	var screen = mainID;
+	// 	var initialized = false;
+	// 	return {
+	// 		init : function() {
+
+	// 		},
+	// 		serializeForm: function() {
+	// 			var inputFields = $(screen).find('form :input');
+	// 			var result = {};
+	// 			$.each(inputFields, function(index, value) {	
+	// 				if ($(value).attr('name')) {
+	// 					result[$(value).attr('name')] = $(value).val();
+	// 				}
+	// 			});
+	// 			return result;
+	// 		}
+	// 	};
+	// }
+
+	// var inputFields = $(screen).find('form :input');
+	// var result = {};
+
+	// $.each(inputFields, function(index, value) {		
+	// });
+
+	// appScreen.serializeForm();
+
+</script>
+</html>
