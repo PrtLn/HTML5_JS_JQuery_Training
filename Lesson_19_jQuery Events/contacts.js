@@ -11,7 +11,26 @@ function contactsScreen(mainID) {
           $(screen).find('form input[type="submit"]').click(
             function(evt) {
               evt.preventDefault();
-          }        
+
+            // Post the form data to the server
+              // check whether the form is valid
+              if ($(evt.target).parents('form')[0].checkValidity()) { 
+                // extract a serialized version of the form
+                var contact = this.serializeForm();  // extract a serialized version of the form
+                // create a new tr element based on the date in the serialized object
+                var html = '<tr><td> + contact.contactName + </td>' +
+                  '<td> + contact.phoneNumber + </td>' +
+                  '<td> + contact.emailAddress + </td>' +
+                  '<td> + contact.companyName + </td>' +
+                  '<td><time datetime="' + contact.lastContacted +'">' +
+                  contact.lastContacted + '</time>' +
+                  '<div class="overlay">' + contact.notes + '</div></td></tr>';
+
+                // add the new tr element as last child of tbody  
+                $(screen).find('table tbody').append(html);
+              }
+            }.bind(this)
+          );
 
           var contactName = document.getElementById('contactName')
           contactName.oninvalid = function(e) {
