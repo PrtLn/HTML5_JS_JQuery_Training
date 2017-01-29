@@ -112,9 +112,15 @@
 </body>
 
  <script> 	
-	var mainElement = document.getElementById('contactScreen');
-    var appScreen = contactsScreen(mainElement);
-    appScreen.init(); 	
+	// Screen Events
+ 		// the 'ready' event provides a safer way to ensure that the DOM has fully loaded
+  		// before being attempt to manipulete it
+ 	$(document).ready(function(evt)
+  	{
+	    var mainElement = document.getElementById('contactScreen');
+	    var screen = contactsScreen(mainElement);
+	    screen.init();
+	}); 	
  </script>
 
 </html>
