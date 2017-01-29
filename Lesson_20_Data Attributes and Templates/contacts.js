@@ -11,9 +11,15 @@ function contactsScreen(mainID) {
           $(screen).find('form input[type="submit"]').click(
             function(evt) {
               evt.preventDefault();
-
-            // Post the form data to the server
               this.save(evt);
+            }.bind(this)
+          );
+
+          // handling Delete button
+          $(screen).on("click", "[data-delete-button]", 
+            function(evt) {
+              evt.preventDefault();
+              this.delete(evt);
             }.bind(this)
           );
 
@@ -59,7 +65,6 @@ function contactsScreen(mainID) {
                 // slow appearance and disappearance notes popup
                 if (evt.type === "mouseenter") {
                   $(evt.target).siblings('.overlay').slideDown();
-                  // $(evt.target).siblings('.overlay').fadeIn("slow");
                 } else {
                   $(evt.target).siblings('.overlay').slideUp();
                 }
@@ -70,8 +75,8 @@ function contactsScreen(mainID) {
           // changes the text of labels such as this to display in red 
           $(':input[required]').siblings('label').css('color', 'green');
           $('<span>').text('*').addClass('requiredMarker');
-          $(':input[required]').siblings('label[for="contactName"]').append(
-            $('<span>').text('*').addClass('requiredMarker').css('color', 'red')
+          $(':input[required]').siblings('label').append(
+            $('<span>').text(' *').addClass('requiredMarker').css('color', 'red')
           );
 
           // Form Events
@@ -105,9 +110,20 @@ function contactsScreen(mainID) {
             var contact = this.serializeForm();
             row = bind(row, contact);
             $(screen).find('table tbody').append(row);
-            $(screen).find('form :input').val('');
+            $(screen).find('form :input[name]').val('');
             $(screen).find('#contactDetails').hide();
+            this.updateTableCount();
           }
+        },
+
+        delete : function(evt) {
+          $(evt.target).parents('tr').remove();
+          this.updateTableCount();
+        },
+
+        updateTableCount : function(evt) {
+          var rows = $(screen).find('table tbody tr');
+          $(screen).find('table tfoot td').text(rows.length + ' contacts displayed');
         },
 
         serializeForm: function() {
