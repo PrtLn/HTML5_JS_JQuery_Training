@@ -54,12 +54,24 @@ function contactsScreen(mainID) {
            } 
 
            initialized = true;
+        },
+
+        // iteration 
+        serializeForm: function() {
+            var inputFields = $(screen).find('form :input');
+            var result = {};
+            $.each(inputFields, function(index, value) {
+                 if ($(value).attr('name')) {
+                     result [$(value).attr('name')] = $(value).val();
+                 }
+            });
+            return result;
         }
     };    
 }
 
 
-// JQuery Exercise
+// JQuery Exercises
 
 // 1. to find any time elements in the web page 
 // and then traverses trom these to find each element`s parent tr element
