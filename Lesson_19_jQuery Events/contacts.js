@@ -18,10 +18,10 @@ function contactsScreen(mainID) {
                 // extract a serialized version of the form
                 var contact = this.serializeForm();  // extract a serialized version of the form
                 // create a new tr element based on the date in the serialized object
-                var html = '<tr><td> + contact.contactName + </td>' +
-                  '<td> + contact.phoneNumber + </td>' +
-                  '<td> + contact.emailAddress + </td>' +
-                  '<td> + contact.companyName + </td>' +
+                var html = '<tr><td>' + contact.contactName + '</td>' +
+                  '<td>' + contact.phoneNumber + '</td>' +
+                  '<td>' + contact.emailAddress + '</td>' +
+                  '<td>' + contact.companyName + '</td>' +
                   '<td><time datetime="' + contact.lastContacted +'">' +
                   contact.lastContacted + '</time>' +
                   '<div class="overlay">' + contact.notes + '</div></td></tr>';
@@ -87,6 +87,12 @@ function contactsScreen(mainID) {
                 }
               }
           );
+
+          // Manipulation
+          // changes the text of labels such as this to display in red 
+          $(':input[required]').siblings('label').css('color', 'green');
+          $('<span>').text('*').addClass('requiredMarker');
+          $(':input[required]').siblings('label[for="contactName"]').append($('<span>').text('*').addClass('requiredMarker').css('color', 'red'));
 
           // Form Events
           // include in the span of textarea character count which will be updated when typing into textarea
