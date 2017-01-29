@@ -105,20 +105,38 @@
 		</div>
 
 	</section>
+
+	<template id="contactRow">
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>
+			<time></time>
+			<div class="overlay"></div>
+		</td>
+	</template>
+
 	</main>
 
-	<footer>Copyright 2017</footer>
-	
+	<footer>Copyright 2017</footer>	
 </body>
-
- <script> 	
- 	$(document).ready(function(evt)
-  	{
-	    var mainElement = document.getElementById('contactScreen');
-	    var screen = contactsScreen(mainElement);
-	    screen.init();
-	}); 	
- </script>
+<script> 	
+	$(document).ready(function(evt)
+	{
+    var mainElement = document.getElementById('contactScreen');
+    var screen = contactsScreen(mainElement);
+    screen.init();
+}); 	
+</script>
 
 </html>
 
+<script>
+
+// Data Attributes and Templates
+
+	// Template Tag
+	$('#contactRow td'); // []
+
+</script>
