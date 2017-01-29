@@ -107,13 +107,13 @@
 	</section>
 
 	<template id="contactRow">
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td data-property-name="contactName"></td>
+		<td data-property-name="phoneNumber"></td>
+		<td data-property-name="emailAddress"></td>
+		<td data-property-name="companyName"></td>
 		<td>
-			<time></time>
-			<div class="overlay"></div>
+			<time data-property-name="lastContacted"></time>
+			<div data-property-name="notes" class="overlay"></div>
 		</td>
 	</template>
 
@@ -138,5 +138,5 @@
 
 	// Template Tag
 	$('#contactRow td'); // []
-
+	
 </script>

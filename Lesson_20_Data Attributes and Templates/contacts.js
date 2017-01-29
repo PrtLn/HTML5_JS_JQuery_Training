@@ -115,7 +115,7 @@ function contactsScreen(mainID) {
               });
 
           initialized = true;          
-        }, 
+        },   
 
         // iteration 
         serializeForm: function() {
@@ -131,3 +131,13 @@ function contactsScreen(mainID) {
     };    
 }
 
+// Data Attributes
+function bind(template, obj) {
+  $.each(template.find('[data-property-name]'), function(indx, val) {
+    var field = $(val).data().propertyName;
+    if (obj[field]) {
+      $(val).text(obj[field]);
+    }
+  });
+  return tamplate;
+}
