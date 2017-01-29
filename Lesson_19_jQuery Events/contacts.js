@@ -28,6 +28,12 @@ function contactsScreen(mainID) {
 
                 // add the new tr element as last child of tbody  
                 $(screen).find('table tbody').append(html);
+
+                // clear the form of all values
+                $(screen).find('form :input[name]').val('');
+                
+                // hide the input section of the page
+                $(screen).find('#contactDetails').hide();
               }
             }.bind(this)
           );
@@ -99,47 +105,47 @@ function contactsScreen(mainID) {
 // When a function  is placed inside a method, 
 // the object it uses as its environment is not the object itself
 
-  var obj = {
-    methodA : function() {
-      console.log('Outer this is ' + this);    // Outer this is [object Object]
-      function inner() {
-        console.log('Inner this is ' + this);  // Inner this is [object Window]
-      }
-      inner();
-    }
-  } 
-  obj.methodA();
+  // var obj = {
+  //   methodA : function() {
+  //     console.log('Outer this is ' + this);    // Outer this is [object Object]
+  //     function inner() {
+  //       console.log('Inner this is ' + this);  // Inner this is [object Window]
+  //     }
+  //     inner();
+  //   }
+  // } 
+  // obj.methodA();
 
 
     // solution 1
-    
-    var obj = {
-      methodA : function() 
-      {
-        var that = this;
 
-        console.log('Outer this is ' + this);    // Outer this is [object Object]
-        function inner() {
-          console.log('Inner this is ' + that);  // Inner this is [object Object]
-        }
-        inner();
-      }
-    } 
-    obj.methodA();
+    // var obj = {
+    //   methodA : function() 
+    //   {
+    //     var that = this;
+
+    //     console.log('Outer this is ' + this);    // Outer this is [object Object]
+    //     function inner() {
+    //       console.log('Inner this is ' + that);  // Inner this is [object Object]
+    //     }
+    //     inner();
+    //   }
+    // } 
+    // obj.methodA();
 
 
     // solution 2
 
-    var obj = {
-      methodA : function() 
-      {
-        console.log('Outer this is ' + this);    // Outer this is [object Object]
-        inner = function() {
-          console.log('Inner this is ' + this);  // Inner this is [object Object]
-        }.bind(this);
-        inner();
-      }
-    } 
-    obj.methodA();
+    // var obj = {
+    //   methodA : function() 
+    //   {
+    //     console.log('Outer this is ' + this);    // Outer this is [object Object]
+    //     inner = function() {
+    //       console.log('Inner this is ' + this);  // Inner this is [object Object]
+    //     }.bind(this);
+    //     inner();
+    //   }
+    // } 
+    // obj.methodA();
 
 
