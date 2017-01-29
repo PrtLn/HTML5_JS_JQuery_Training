@@ -5,7 +5,13 @@ function contactsScreen(mainID) {
          init: function() {
             if (initialized) {
                 return;
-            }          
+            }  
+
+          // Registering Event Listeners
+          $(screen).find('form input[type="submit"]').click(
+            function(evt) {
+              evt.preventDefault();
+          }        
 
           var contactName = document.getElementById('contactName')
           contactName.oninvalid = function(e) {
