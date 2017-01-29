@@ -13,27 +13,7 @@ function contactsScreen(mainID) {
               evt.preventDefault();
 
             // Post the form data to the server
-              if ($(evt.target).parents('form')[0].checkValidity()) { 
-                // extract a serialized version of the form
-                var contact = this.serializeForm();
-                // create a new tr element based on the date in the serialized object
-                 var html = '<tr><td>' + contact.contactName + '</td>' +
-                  '<td>' + contact.phoneNumber + '</td>' +
-                  '<td>' + contact.emailAddress + '</td>' +
-                  '<td>' + contact.companyName + '</td>' +
-                  '<td><time datetime="' + contact.lastContacted +'">' +
-                  contact.lastContacted + '</time>' +
-                  '<div class="overlay">' + contact.notes + '</div></td></tr>';
-
-                // add the new tr element as last child of tbody  
-                $(screen).find('table tbody').append(html);
-
-                // clear the form of all values
-                $(screen).find('form :input[name]').val('');
-
-                // hide the input section of the page
-                $(screen).find('#contactDetails').hide();
-              }
+              this.save(evt);
             }.bind(this)
           );
 
@@ -115,9 +95,21 @@ function contactsScreen(mainID) {
               });
 
           initialized = true;          
-        },   
+        },  
 
-        // iteration 
+        // Using the Template
+        save : function(evt) {
+          if ($(evt.target).parents('form')[0].checkValidity()) {
+            var fragment = $(screen).find('#contactRow')[0].content.cloneNode(true);
+            var row = $('<tr>').append(fragment);
+            var contact = this.serializeForm();
+            row = bind(row, contact);
+            $(screen).find('table tbody').append(row);
+            $(screen).find('form :input').val('');
+            $(screen).find('#contactDetails').hide();
+          }
+        },
+
         serializeForm: function() {
             var inputFields = $(screen).find('form :input');
             var result = {};
@@ -137,7 +129,11 @@ function bind(template, obj) {
     var field = $(val).data().propertyName;
     if (obj[field]) {
       $(val).text(obj[field]);
+
+      if ($(val).is('time')) {
+        $(val).attr('datetime', obj[field]);
+      }
     }
   });
-  return tamplate;
+  return template;
 }
