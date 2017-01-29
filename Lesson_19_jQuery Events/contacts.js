@@ -76,7 +76,7 @@ function contactsScreen(mainID) {
           // any newly added descendants of element will automatically be bound to the event listener
           $(screen).find('tbody').on("mouseenter mouseleave", "td > time",
               function(evt) {
-                
+
                 // Animation
                 // slow appearance and disappearance notes popup
                 if (evt.type === "mouseenter") {
@@ -97,6 +97,18 @@ function contactsScreen(mainID) {
                 ' characters typed into the Notes');
             }
           });
+
+          // Try It
+          // change color when hover over any row
+          $(screen).find('tbody').on("mouseenter mouseleave", "tr",
+              function(evt) {
+                if (evt.type === "mouseenter") {
+                  $(evt.target).closest('tr').css('color', 'white');
+                  $(evt.target).closest('tr').css('background', '#3056A0');
+                } else {
+                 $(evt.target).closest('tr').removeAttr('style');
+                }
+              });
 
           initialized = true;          
         }, 

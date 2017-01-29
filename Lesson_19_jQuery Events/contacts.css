@@ -85,4 +85,6 @@ footer {
 	display: none;
 	z-index:1;
 	padding:10px;
+
+	color: #333333 !important;
 }
