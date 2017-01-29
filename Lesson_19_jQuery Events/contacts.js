@@ -84,6 +84,16 @@ function contactsScreen(mainID) {
               }
           );
 
+          // Form Events
+          // include in the span of textarea character count which will be updated when typing into textarea
+          $(screen).find('textarea').keyup(function(evt) {
+            if ($(evt.target).siblings('.textCount')) {
+              var characters = $(evt.target).val().length;
+              $(evt.target).siblings('.textCount').text(characters + 
+                ' characters typed into the Notes');
+            }
+          });
+
           initialized = true;          
         }, 
 
