@@ -76,10 +76,14 @@ function contactsScreen(mainID) {
           // any newly added descendants of element will automatically be bound to the event listener
           $(screen).find('tbody').on("mouseenter mouseleave", "td > time",
               function(evt) {
+                
+                // Animation
+                // slow appearance and disappearance notes popup
                 if (evt.type === "mouseenter") {
-                  $(evt.target).siblings('.overlay').show();
+                  $(evt.target).siblings('.overlay').slideDown();
+                  // $(evt.target).siblings('.overlay').fadeIn("slow");
                 } else {
-                  $(evt.target).siblings('.overlay').hide();
+                  $(evt.target).siblings('.overlay').slideUp();
                 }
               }
           );
