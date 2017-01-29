@@ -31,7 +31,7 @@ function contactsScreen(mainID) {
 
                 // clear the form of all values
                 $(screen).find('form :input[name]').val('');
-                
+
                 // hide the input section of the page
                 $(screen).find('#contactDetails').hide();
               }
@@ -72,16 +72,17 @@ function contactsScreen(mainID) {
 
           // Showing Notes 
 
-          var timeElements = document.getElementsByTagName('time');
-           for (var i = 0; i < timeElements.length; i++) {
-               timeElements[i].addEventListener("mouseenter", function(event) {
-                 event.target.nextElementSibling.style.display = 'block';
-               });
-
-               timeElements[i].addEventListener("mouseleave", function(event) {
-                  event.target.nextElementSibling.style.display = 'none';
-               });
-           }  
+          // Delegated Event Listeners
+          // any newly added descendants of element will automatically be bound to the event listener
+          $(screen).find('tbody').on("mouseenter mouseleave", "td > time",
+              function(evt) {
+                if (evt.type === "mouseenter") {
+                  $(evt.target).siblings('.overlay').show();
+                } else {
+                  $(evt.target).siblings('.overlay').hide();
+                }
+              }
+          );
 
           initialized = true;          
         }, 
