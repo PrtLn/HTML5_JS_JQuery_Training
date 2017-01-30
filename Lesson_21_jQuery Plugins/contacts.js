@@ -132,7 +132,9 @@ function contactsScreen(mainID) {
 
         updateTableCount : function(evt) {
           var rows = $(screen).find('table tbody tr');
-          $(screen).find('table tfoot td').text(rows.length + ' contacts displayed');
+          $(screen).find('table').updateFooter({
+            'message' : 'contacts displayed'
+          });
         },
 
         serializeForm: function() {

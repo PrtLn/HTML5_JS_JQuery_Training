@@ -4,9 +4,16 @@
 		updateFooter : function(param) {
 			if ($(this).find('tbody') && $(this).find('tfoot')) {
 				var count = $(this).find('tbody tr').length;
-				$(this).find('tfoot tr td').text(count + " rows in the table");
+
+				// creating message
+				if (param && param.message) {
+					$(this).find('tfoot tr td').text(count + " " + param.message);
+				} else {
+					$(this).find('tfoot tr td').text(count + " rows in the table");
+				}				
 			}
-		}
+			return this
+		},
 	});
 })(jQuery);
 
