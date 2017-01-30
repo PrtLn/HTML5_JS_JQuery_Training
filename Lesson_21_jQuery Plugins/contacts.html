@@ -7,8 +7,10 @@
 
          <script src="jquery-3.1.1.min.js"></script>
          <!-- <script src=http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script> -->
+         <script src="contacts.js"></script>
 
-         <script src="contacts.js"></script>		 
+         <link rel="stylesheet" type="text/css" href="jquery-ui.css">
+         <script src="jquery-ui.js"></script>
 </head>
 <body>
 	<header>Contacts</header>
@@ -51,7 +53,7 @@
 
 			<div class="formRow">
 				<label for="lastContacted">Last contacted</label>
-				<input name="lastContacted" type="date" class="validated"/>
+				<input name="lastContacted" type="text" class="validated"/>
 			</div>
 
 			<div class="formRow">
@@ -103,24 +105,22 @@
 	<footer>Copyright 2017</footer>	
 </body>
 <script> 	
+
+	// jQueryUI
+	$('[name="lastContacted"]').datepicker({
+		// can choose
+		minDate : "-6m", // 6 months ago
+		maxDate : 0      // 0 days from today
+	});
+
 	$(document).ready(function(evt)
 	{
-    var mainElement = document.getElementById('contactScreen');
-    var screen = contactsScreen(mainElement);
-    screen.init();
-}); 	
+	    var mainElement = document.getElementById('contactScreen');
+	    var screen = contactsScreen(mainElement);
+	    screen.init();
+	}); 
+
 </script>
 
 </html>
 
-<script>
-
-// Data Attributes and Templates
-
-	// Template Tag
-	$('#contactRow td'); // []
-
-	// Using the Template
-	document.getElementById('contactRow').content  // #document-fragment
-
-</script>
