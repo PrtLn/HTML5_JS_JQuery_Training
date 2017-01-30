@@ -109,6 +109,11 @@ function contactsScreen(mainID) {
             var row = $('<tr>').append(fragment);
             var contact = this.serializeForm();
             row = bind(row, contact);
+
+            // displays short form of date using the jQuery plugin self-created
+            // $(row).find('time').setTime();
+            $(row).find('time').setTime({'style':'short'});
+
             $(screen).find('table tbody').append(row);
             $(screen).find('form :input[name]').val('');
             $(screen).find('#contactDetails').hide();
