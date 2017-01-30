@@ -52,7 +52,9 @@ function contactsScreen(mainID) {
           document.getElementById('addContact')
             .addEventListener("click", function(event) {
              event.preventDefault();
-             document.getElementById('contactDetails').style.display = 'block';
+
+            // displaying the form for inpute info
+            $(screen).find('#contactDetails').toggle("blind");
           });
 
           // Showing Notes 
@@ -116,7 +118,9 @@ function contactsScreen(mainID) {
 
             $(screen).find('table tbody').append(row);
             $(screen).find('form :input[name]').val('');
-            $(screen).find('#contactDetails').hide();
+
+            // hide the form after saving info
+            $(screen).find('#contactDetails').toggle("blind");
             this.updateTableCount();
           }
         },
