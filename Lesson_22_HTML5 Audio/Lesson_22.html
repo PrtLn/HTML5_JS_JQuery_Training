@@ -16,8 +16,8 @@
 </head>
 <body>	
 	<audio id="audioTrack">
-		<source src="Niko Javan.mp3" type="audio/mpeg">
 		<source src="Freedom in Django Unchained.ogg" type="audio/ogg">
+		<source src="Niko Javan.mp3" type="audio/mpeg">		
 		
 			Your browser does not support the audio element. <!-- message for IE -->
 	</audio>
@@ -27,7 +27,10 @@
 			<a href="#" id="play">Play</a>
 			<a href="#" id="pause">Pause</a>
 			<a href="#" id="stop">Stop</a>
-		</div>			
+		</div>	
+
+		<!-- adding a range input field -->
+		<input type="range" min="10" max="100" value="0" id="setLocation">		
 	</div>
 </body>
 
@@ -55,6 +58,16 @@
 		$('audio')[0].currentTime = 0;
 		$('audio')[0].pause();
 	});
+
+	// handling the event listener for the range input
+	$('#setLocation').change(function(evt) {
+		var val = $(evt.target).val();
+		var duration = $('audio')[0].duration;
+		var location = duration * (parseInt(val) / 100);
+		$('audio')[0].currentTime = location;
+		$('audio')[0].play();
+	});
+
 </script>
 
 </html>
