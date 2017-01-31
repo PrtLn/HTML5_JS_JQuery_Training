@@ -4,6 +4,19 @@
 	<meta charset="utf-8">
 	<title>Lesson 23</title>
 
+	<style>
+		a {
+			text-decoration: none;
+			background-color: #222;
+			color: white;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 20px;
+			padding: 5px 45px 5px 45px;
+			border-radius: 0 15px 0px 15px;
+			margin-right: 15px;
+		}
+	</style>
+
 	<script src="jquery-3.1.1.min.js"></script>
     <!-- <script src=http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script> -->
 
@@ -11,15 +24,19 @@
 <body>
 	<!-- add the video to a web page -->
 	<video width="1000" autoplay poster="poster.png">
-		<!-- <source src="Worlds_in_Worlds.ogv" type='video/ogv; codecs="theora, vorbis"'> -->
 		<source src="Telekinesis.mp4" type="video/mp4">
 			Your browser does not support the video element.
 	</video>
 
-	<!-- buttons for the controlling volume -->
-	<div id="buttons" style="padding: 15px;">
+	
+	<div id="buttons" style="margin: 30px;">
+		<!-- buttons for the controlling volume -->
 		<a href="#" id="decreaseVolume">Lower volume</a>
 		<a href="#" id="increaseVolume">Increase volume</a>
+
+		<!-- buttons for control the playback -->
+		<a href="#" id="slowDown">Slow Down</a>
+		<a href="#" id="speedUp">Speed Up</a>
 	</div>
 
 </body>
@@ -38,6 +55,20 @@
 		evt.preventDefault();
 		var currentVolume = parseFloat($('video').prop('volume'));
 		$('video').prop('volume', Math.min(1, currentVolume + 0.1));
+	});
+
+// Controlling Playback Speed
+
+	$('#slowDown').click(function(evt) {
+		evt.preventDefault();
+		var currentRate = parseFloat($('video').prop('playbackRate'));
+		$('video').prop('playbackRate', Math.max(0, currentRate - 0.1));
+	});
+
+	$('#speedUp').click(function(evt) {
+		evt.preventDefault();
+		var currentRate = parseFloat($('video').prop('playbackRate'));
+		$('video').prop('playbackRate', Math.min(5, currentRate + 0.1));
 	});
 
 </script>
