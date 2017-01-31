@@ -10,10 +10,35 @@
 </head>
 <body>
 	<!-- add the video to a web page -->
-	<video width="1000" controls muted autoplay poster="poster.png">
-		<source src="Worlds_in_Worlds.ogv" type='video/ogv; codecs="theora, vorbis"'>
-		<source src="Worlds in Worlds.mp4" type="video/mp4">
+	<video width="1000" autoplay poster="poster.png">
+		<!-- <source src="Worlds_in_Worlds.ogv" type='video/ogv; codecs="theora, vorbis"'> -->
+		<source src="Telekinesis.mp4" type="video/mp4">
 			Your browser does not support the video element.
 	</video>
+
+	<!-- buttons for the controlling volume -->
+	<div id="buttons" style="padding: 15px;">
+		<a href="#" id="decreaseVolume">Lower volume</a>
+		<a href="#" id="increaseVolume">Increase volume</a>
+	</div>
+
 </body>
+
+<script>
+
+// Controlling Volume
+
+	$('#decreaseVolume').click(function(evt) {
+		evt.preventDefault();
+		var currentVolume = parseFloat($('video').prop('volume'));
+		$('video').prop('volume', Math.max(0, currentVolume - 0.1));
+	});
+
+	$('#increaseVolume').click(function(evt) {
+		evt.preventDefault();
+		var currentVolume = parseFloat($('video').prop('volume'));
+		$('video').prop('volume', Math.min(1, currentVolume + 0.1));
+	});
+
+</script>
 </html>
