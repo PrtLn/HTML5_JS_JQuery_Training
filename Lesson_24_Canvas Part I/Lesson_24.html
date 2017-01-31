@@ -9,7 +9,7 @@
 </head>
 <body>
 	
-	<canvas width="800" height="500" id="myCanvas"></canvas>
+	<canvas width="600" height="600" id="myCanvas"></canvas>
 
 	<script>
 
@@ -75,13 +75,39 @@
 
 	// Drawing Text
 
+		// var context = $('#myCanvas')[0].getContext("2d");
+		// context.font = "20px Courier";
+		// context.fillText("Hello World !", 20, 50);
+
+		// context.font = "50px Georgia";
+		// context.strokeText("Hello World !", 20, 150);
+
+	// drawing "Random Walk"
+
 		var context = $('#myCanvas')[0].getContext("2d");
-		context.font = "20px Courier";
-		context.fillText("Hello World !", 20, 50);
+		context.beginPath();
+		context.moveTo(300, 300);
 
-		context.font = "50px Georgia";
-		context.strokeText("Hello World !", 20, 150);
+		var currentX = 300;
+		var currentY = 300;
 
+		for (var i = 0; i < 10000; i++) {
+			var result = Math.random();
+			console.log(result);
+
+			if (result < 0.25) {
+				currentX = currentX - 3;
+			} else if (result < 0.5) {
+				currentX = currentX + 3;
+			} else if (result < 0.75) {
+				currentY = currentY - 3;
+			} else {
+				currentY = currentY + 3;
+			}
+			console.log("Moving to " + currentX + " " + currentY);
+			context.lineTo(currentX, currentY);
+		}
+		context.stroke();
 
 	</script>
 </body>
