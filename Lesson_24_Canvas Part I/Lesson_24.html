@@ -34,13 +34,43 @@
 		// context.lineTo(170, 100);
 		// context.fill();
 
+		// var context = $('#myCanvas')[0].getContext("2d");
+		// context.beginPath();
+		// context.moveTo(100, 20);
+		// context.lineTo(30, 100);
+		// context.lineTo(170,100);
+		// // context.lineTo(100, 20);
+		// context.closePath();
+		// context.stroke();
+
+
+	// Circles and Curves
+
 		var context = $('#myCanvas')[0].getContext("2d");
 		context.beginPath();
-		context.moveTo(100, 20);
-		context.lineTo(30, 100);
-		context.lineTo(170,100);
-		// context.lineTo(100, 20);
-		context.closePath();
+		context.arc(200, 250, 70, 90, 2 * Math.PI, true)		
+		context.fill();
+
+		context.beginPath();
+		context.arc(400, 250, 70, 45, Math.PI, false)
+		context.fill();
+
+		context.beginPath();
+		context.arc(600, 250, 70, 0, 0.5 * Math.PI, true)
+		context.stroke();
+
+	// drawing between two points
+		var context = $('#myCanvas')[0].getContext("2d");
+		context.beginPath();
+
+		// creating lines
+		context.moveTo(50, 50);
+		context.lineTo(150, 20);
+		context.lineTo(150, 120);
+
+		// creating arc
+		context.moveTo(50, 50);
+		context.arcTo(150, 20, 150, 150, 80);
 		context.stroke();
 
 	</script>
