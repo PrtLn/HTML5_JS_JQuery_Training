@@ -15,12 +15,33 @@
 
 	// Simple Drawing
 
+	// drawins two rectangles
+		// var context = $('#myCanvas')[0].getContext("2d");
+		// context.fillStyle = 'lightgrey';
+		// context.fillRect(300, 200, 100, 200);
+		// context.strokeStyle = 'grey';
+		// context.lineWidth = 3;
+		// context.strokeRect(50, 300, 400, 100);
+
+	// Drawing Lines
+
+	// drawing triangle by coordinates of points
+
+		// var context = $("#myCanvas")[0].getContext("2d");
+		// context.beginPath();
+		// context.moveTo(100, 20);
+		// context.lineTo(30, 100);
+		// context.lineTo(170, 100);
+		// context.fill();
+
 		var context = $('#myCanvas')[0].getContext("2d");
-		context.fillStyle = 'lightgrey';
-		context.fillRect(300, 200, 100, 200);
-		context.strokeStyle = 'grey';
-		context.lineWidth = 3;
-		context.strokeRect(50, 300, 400, 100);
+		context.beginPath();
+		context.moveTo(100, 20);
+		context.lineTo(30, 100);
+		context.lineTo(170,100);
+		// context.lineTo(100, 20);
+		context.closePath();
+		context.stroke();
 
 	</script>
 </body>
