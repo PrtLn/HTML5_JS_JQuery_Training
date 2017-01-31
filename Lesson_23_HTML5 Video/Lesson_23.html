@@ -11,9 +11,9 @@
 			color: white;
 			font-family: Arial, Helvetica, sans-serif;
 			font-size: 20px;
-			padding: 5px 30px 5px 30px;
-			border-radius: 0 15px 0px 15px;
-			margin-right: 15px;
+			padding: 5px 30px;
+			border-radius: 0 15px;
+			margin-right: 15px;	
 		}
 	</style>
 
@@ -23,7 +23,7 @@
 </head>
 <body>
 	<!-- add the video to a web page -->
-	<video width="1000" autoplay poster="poster.png">
+	<video width="1000" controls autoplay poster="poster.png">
 		<source src="Telekinesis.mp4" type="video/mp4">
 			Your browser does not support the video element.
 	</video>
@@ -42,8 +42,11 @@
 		<a href="#" id="fullScreen">Fullscreen</a>
 	</div>
 
+	<p></p>
 	<div id="buttons" style="margin: 10px;">
-		
+		<!-- buttons for skipping by 10 seconds forward or backwards in the video -->
+		<a href="#" id="jumpForward">Jump forward</a>
+		<a href="#" id="jumpBack">Jump back</a>
 	</div>
 
 </body>
@@ -99,6 +102,24 @@
 		} else if (video.msRequestFullScreen) {
 			video.msRequestFullScreen();
 		}
+	});
+
+// handling the skipping by 10 seconds forwards or backwards
+
+	$('#jumpForward').click(function(evt) {
+		evt.preventDefault();
+		var currentTime = parseFloat($('video').prop('currentTime'));
+		var duration = parseFloat($('video').prop('duration'));
+		var newTime = currentTime + 10;
+		newTime = Math.min(duration, newTime);
+		$('video').prop('currentTime', newTime);
+	});
+
+	$('#jumpBack').click(function(evt) {
+		evt.preventDefault();
+		var currentTime = parseFloat($('video').prop('currentTime'));
+		var newTime = currentTime - 10;
+		$('video').prop('currentTime', Math.max(0, newTime));
 	});
 
 </script>
