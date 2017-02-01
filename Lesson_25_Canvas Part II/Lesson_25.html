@@ -15,12 +15,11 @@
 </head>
 <body>
 	
-	<canvas width="800" height="550" id="myCanvas"></canvas>
+	<canvas width="800" height="850" id="myCanvas"></canvas>
 
 	<script>
 
 	// Linear Gradient
-
 		var context = $('#myCanvas')[0].getContext("2d");
 
 		var gradient = context.createLinearGradient(50, 0, 200, 0);
@@ -45,7 +44,6 @@
 		context.fillRect(550, 50, 200, 200);
 
 	// Shadows
-
 		context.fillStyle = "black";
 		context.shadowColor = "#444444";
 	// save()
@@ -61,6 +59,13 @@
 
 		context.fillRect(350, 400, 100, 100);		
 
+	// Images
+		var image = new Image();
+		image.src = "girl.jpg";
+
+		image.addEventListener('load', function() {
+			context.drawImage(image, 50, 550, 220, 220);
+		});
 
 	</script>
 </body>
