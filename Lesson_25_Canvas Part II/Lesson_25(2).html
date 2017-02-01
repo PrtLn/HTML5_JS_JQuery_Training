@@ -5,9 +5,9 @@
 	<title>Lesson 25</title>
 
 	<style>
-		/*canvas {
+		canvas {
 			background-color: #777;
-		}*/
+		}
 	</style>
 
 	<script src="jquery-3.1.1.min.js"></script>
@@ -15,7 +15,7 @@
 </head>
 <body>
 	
-	<canvas width="800" height="850" id="myCanvas"></canvas>
+	<canvas width="400" height="400" id="myCanvas"></canvas>
 
 	<script>
 
@@ -36,7 +36,7 @@
 		context.fillRect(10, 10, 180, 180);
 	context.restore();
 
-
+	context.save();
 		context.fillStyle = "#444444";
 		context.fillRect(210, 10, 180, 180);
 
@@ -47,8 +47,32 @@
 		context.transform(0.5, 0.3, -0.3, 0.5, 80 ,30);
 		context. fillStyle = "black";
 		context.fillRect(250, -520, 180, 180);
+	context.restore();
 
 
+	// Basic Animation
+		var context = $('#myCanvas')[0].getContext("2d");
+		context.fillStyle = "blue";
+		var startX = 0;
+		var startY = 0;
+		var forward = true;
+		setInterval(drawRectangle, 30);
+		function drawRectangle() {
+			context.clearRect(startX, startY, 40, 40);
+			if (forward && startX === 400) {
+				forward = false;
+			} else if (!forward && startX === 0) {
+				forward = true;
+			}
+			if (forward) {
+				startX = startX + 1;
+				startY = startY + 1;
+			} else {
+				startX = startX - 1;
+				startY = startY - 1;
+			}
+			context.fillRect(startX, startY, 40, 40);
+		}
 
 	</script>
 </body>
