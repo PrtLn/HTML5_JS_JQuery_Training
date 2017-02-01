@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 25</title>
+
+	<style>
+		/*canvas {
+			background-color: #777;
+		}*/
+	</style>
+
+	<script src="jquery-3.1.1.min.js"></script>
+    <!-- <script src=http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script> -->
+</head>
+<body>
+	
+	<canvas width="800" height="850" id="myCanvas"></canvas>
+
+	<script>
+
+		var context = $('#myCanvas')[0].getContext("2d");
+
+	// Transforming Shapes
+	context.save();
+		context.fillStyle = "#444444";
+		context.fillRect(10, 10, 180, 180);
+
+		// transform(horizontalScale, horizontalSkew, verticalSkew, verticalScale, horizontalOffset, verticalOffset)
+		context.transform(0.5, 0, 0, 0.5, 30, 30); 
+		context.fillStyle = "#cccccc";
+		context.fillRect(10, 10, 180, 180);
+
+		context.transform(0.5, 0, 0, 0.5, 30, 30); 
+		context.fillStyle = "white";
+		context.fillRect(10, 10, 180, 180);
+	context.restore();
+
+
+		context.fillStyle = "#444444";
+		context.fillRect(210, 10, 180, 180);
+
+		context.setTransform(0.5, 0.3, -0.3, 0.5, 80 ,30);
+		context. fillStyle = "#cccccc";
+		context.fillRect(290, -180, 180, 180);
+
+		context.transform(0.5, 0.3, -0.3, 0.5, 80 ,30);
+		context. fillStyle = "black";
+		context.fillRect(250, -520, 180, 180);
+
+
+
+	</script>
+</body>
+</html>
