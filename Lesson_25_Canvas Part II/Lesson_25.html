@@ -4,14 +4,45 @@
 	<meta charset="utf-8">
 	<title>Lesson 25</title>
 
+	<style>
+		canvas {
+			background-color: #666;
+		}
+	</style>
+
 	<script src="jquery-3.1.1.min.js"></script>
     <!-- <script src=http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script> -->
 </head>
 <body>
 	
-	<canvas width="800" height="800" id="myCanvas"></canvas>
+	<canvas width="800" height="300" id="myCanvas"></canvas>
 
 	<script>
+
+	// Linear Gradient
+
+		var context = $('#myCanvas')[0].getContext("2d");
+
+		var gradient = context.createLinearGradient(50, 0, 200, 0);
+		gradient.addColorStop(0.0, "black");
+		gradient.addColorStop(1.0, "white");
+		context.fillStyle = gradient;
+		context.fillRect(50, 50, 200, 200);
+		
+		var gradient = context.createLinearGradient(300, 0, 500, 0);
+		gradient.addColorStop(0, "red");
+		gradient.addColorStop(0.4, "white");
+		gradient.addColorStop(0.5, "white");
+		gradient.addColorStop(0.7, "grey");
+		gradient.addColorStop(1, "lightgrey");
+		context.fillStyle = gradient;
+		context.fillRect(300, 50, 200, 200);
+
+		var gradient = context.createLinearGradient(550, 50, 750, 250);
+		gradient.addColorStop(0, "black");
+		gradient.addColorStop(1, "white");
+		context.fillStyle = gradient;
+		context.fillRect(550, 50, 200, 200);
 
 	</script>
 </body>
