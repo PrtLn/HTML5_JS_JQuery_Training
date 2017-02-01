@@ -6,7 +6,7 @@
 
 	<style>
 		canvas {
-			background-color: #666;
+			background-color: #777;
 		}
 	</style>
 
@@ -15,7 +15,7 @@
 </head>
 <body>
 	
-	<canvas width="800" height="300" id="myCanvas"></canvas>
+	<canvas width="800" height="550" id="myCanvas"></canvas>
 
 	<script>
 
@@ -43,6 +43,24 @@
 		gradient.addColorStop(1, "white");
 		context.fillStyle = gradient;
 		context.fillRect(550, 50, 200, 200);
+
+	// Shadows
+
+		context.fillStyle = "black";
+		context.shadowColor = "#444444";
+	// save()
+		context.save();
+		context.shadowOffsetX = 10;
+		context.shadowOffsetY = -10;
+		context.font = "50px Courier";		
+		context.fillText("Hello World !", 150, 350);
+		context.shadowBlur = 10;
+		context.fillRect(150, 400, 100, 100);
+	// restore()
+		context.restore();
+
+		context.fillRect(350, 400, 100, 100);		
+
 
 	</script>
 </body>
