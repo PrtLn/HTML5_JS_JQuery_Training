@@ -3,8 +3,41 @@
 <head>
 	<meta charset="utf-8">
 	<title>Lesson 27</title>
+
+	<style>
+	/* Linear Gradient */
+		#_1, #_2, #_3, #_4 {
+			position: relative;	
+			display: inline-block;
+			margin: 10px;
+			width: 150px;
+			height: 150px;
+		}
+		#_1 {
+			background: linear-gradient(45deg, white, black);
+		}
+		#_2 {
+			/*background: linear-gradient(to right, orange, blue);
+			background: linear-gradient(to left, orange, blue);
+			background: linear-gradient(to top, orange, blue);*/
+			background: linear-gradient(to bottom, orange, blue);
+		}
+		#_3 {			
+			background: linear-gradient(45deg, red, white, green);
+		}
+		#_4 {			
+			background: linear-gradient(45deg, red 0%, blue 20%, orange 100%);
+		}
+	</style>
 </head>
 <body>
 	
+	<div class="boxes">
+		<div id="_1"></div>
+		<div id="_2"></div>
+		<div id="_3"></div>
+		<div id="_4"></div>
+	</div>
+
 </body>
 </html>
