@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 27</title>
+
+	<style>
+	/* 2D Transformations */
+		div {
+			width: 200px;
+			height: 200px;
+			border: 1px solid;
+			margin: 20px;
+			background: #888;
+			float: left;
+		}
+		#div2 {
+			background: #b33abc;
+			transform: scale(0.5, 0.5); /* scale(scaleX, scaleY) */
+		}
+		#div3 {
+			background: #66a;
+			-webkit-transform: scale(0.7, 0.7) rotate(45deg);
+			-moz-transform: scale(0.7, 0.7) rotate(45deg);
+			-ms-transform: scale(0.7, 0.7) rotate(45deg);
+			-o-transform: scale(0.7, 0.7) rotate(45deg);
+			transform: scale(0.7, 0.7) rotate(45deg);
+		}
+		#div4 {
+			background: #3f3;
+			-webkit-transform: scale(0.5, 0.5) skew(10deg, -45deg);
+			-moz-transform: scale(0.5, 0.5) skew(10deg, -45deg);
+			-ms-transform: scale(0.5, 0.5) skew(10deg, -45deg);
+			-o-transform: scale(0.5, 0.5) skew(10deg, -45deg);
+			transform: scale(0.5, 0.5) skew(10deg, -45deg);
+		}
+		#div5 {
+			background: #f80;
+			transform: translate(40px, -40px) scale(0.5, 0.5);
+		}
+		/* matrix function */
+		#div6 {
+			background: #f00;
+			transform: matrix(0.5, 0.45, -0.45, 0.5, 100, -50); /*  matrix(scaleX, skewX, skewY, scaleY, offsetX, offsetY)*/
+		}
+		#div7 {
+			background: #aa0;
+			transform: matrix(0.5, 0.45, -0.45, 0.5, 100, -50, 1);
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+	<div id="div5"></div>
+	<div id="div6">
+		<div id="div7"></div>
+	</div>
+	<div id="div7"></div>
+
+</body>
+</html>
