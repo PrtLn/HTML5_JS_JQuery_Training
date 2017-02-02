@@ -5,6 +5,35 @@
 	<title>Lesson 26</title>
 
 	<style>
+
+		/* Custom Fonts */
+		@font-face {
+			font-family: "Open Sans";
+			src: url(OpenSans-Regular.ttf);
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: "Open Sans";
+			src: url(OpenSans-Bold.ttf);
+			font-weight: bold;
+		}
+		@font-face {
+			font-family: "Open Sans";
+			src: url(OpenSans-BoldItalic.ttf);
+			font-weight: bold;
+			font-style: italic;
+		}
+		@font-face {
+			font-family: "Open Sans";
+			src: url(OpenSans-Italic.ttf);
+			font-weight: normal;
+			font-style: italic;
+		}
+
+		body {
+			font-family: "Open Sans", sans-serif;
+		}
+
 		/* CSS Borders */
 		div {
 			margin: 50px;
@@ -27,8 +56,8 @@
 			box-shadow: 10px -10px 10px #888888; /* horizontalPosition, verticalPosition, blur, color */
 
 			box-shadow: 0 0 10px 10px #888888 inset;
+		}		
 
-		}
 	</style>
 
 	<script src="jquery-3.1.1.min.js"></script>
@@ -37,6 +66,10 @@
 <body>
 
 	<div></div>
-	
+
+	<p>This is open sans</p>
+	<p><strong>This is open sanse bold</strong></p>
+	<p><em>This is open sans bold</em></p>
+
 </body>
 </html>
