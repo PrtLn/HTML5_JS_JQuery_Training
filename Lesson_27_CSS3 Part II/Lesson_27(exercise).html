@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 27</title>
+
+	<script src="jquery-3.1.1.min.js"></script>
+
+	<style>
+	/* Transitions */
+		div {
+			width: 200px;
+			height: 200px;
+			margin: 50px;
+				background: green;
+				transition: background 3s, -webkit-transform 4s; 
+		}		
+	</style>
+</head>
+<body>	
+	<div id="div1"></div>	
+</body>
+
+<script>
+	var colors = ['green', 'teal', 'indigo', 'blue'];
+	var i = 0;
+	$('#div1').click(function(evt) {		
+		i = i + 1;
+		var num = i % 4;
+		$(evt.target).css('background', colors[num]);
+		var angle = 90 * num;
+		$(evt.target).css('-webkit-transform', 'rotate(' + angle + 'deg');
+	});
+</script>
+</html>
