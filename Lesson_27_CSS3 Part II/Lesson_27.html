@@ -20,24 +20,56 @@
 			/*background: linear-gradient(to right, orange, blue);
 			background: linear-gradient(to left, orange, blue);
 			background: linear-gradient(to top, orange, blue);*/
-			background: linear-gradient(to bottom, orange, blue);
+			background: linear-gradient(to bottom, orange, blue);			
 		}
 		#_3 {			
-			background: linear-gradient(45deg, red, white, green);
+			background: linear-gradient(45deg, red, white, green);			
 		}
 		#_4 {			
-			background: linear-gradient(45deg, red 0%, blue 20%, orange 100%);
+			background: linear-gradient(45deg, red 0%, blue 20%, orange 100%);			
 		}
+
+	/* Calc Function */
+		.boxes_calc {
+			width: 800px;
+			background: #aaa;
+		}
+		#_5, #_6, #_7, #_8 {
+			clear: both;
+			position: relative;	
+			display: inline-block;
+			background: #444;
+			margin: 10px;
+			width: 350px;
+			height: 150px;
+		}
+		#_5 {
+			width: calc(30% - 20px); /* 30% of the space available */
+		}
+		#_6 {
+			width: calc((30% / 2) - 20px);
+		}
+		#_7 {
+			width: calc(30%, 200px); /* 30% of the space available, but not be less 200 pixels */
+		}
+
 	</style>
 </head>
 <body>
 	
-	<div class="boxes">
+	<div class="boxes_gradient">
 		<div id="_1"></div>
 		<div id="_2"></div>
 		<div id="_3"></div>
 		<div id="_4"></div>
 	</div>
+
+	<div class="boxes_calc">
+		<div id="_5"></div>
+		<div id="_6"></div>
+		<div id="_7"></div>
+	</div>
+
 
 </body>
 </html>
