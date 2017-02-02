@@ -53,6 +53,37 @@
 			width: calc(30%, 200px); /* 30% of the space available, but not be less 200 pixels */
 		}
 
+	/* Text Effects */
+		h1 {
+			font-size: 3em;
+			font-family: Arial, sans-serif;
+			color: #333;
+			text-shadow: 3px 3px 5px #888;
+		}
+		.bound_1 {
+			width: 150px;
+			height: 100px;
+			border: 1px solid #888;
+		}
+		.bound_2 {
+			width: 150px;
+			height: 40px;
+			border: 1px solid #888;
+		}
+		#p_1 {
+			word-wrap: break-word;
+		}
+		#p_2 {
+			white-space: nowrap;
+		}
+		#p_3 {
+			overflow: hidden;
+		}
+		#p_4 {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
 	</style>
 </head>
 <body>
@@ -70,6 +101,23 @@
 		<div id="_7"></div>
 	</div>
 
+	<h1>This is a shadow</h1>
+
+	<div class="bound_1">
+		<p id="p_1">Thisshowsaproblemwithaverylongword</p>		
+	</div>
+
+	<div class="bound_2">
+		<p id="p_2">Thisshowsaproblemwithaverylongword</p>		
+	</div>
+
+	<div class="bound_2">
+		<p id="p_3">Thisshowsaproblemwithaverylongword</p>		
+	</div>
+
+	<div class="bound_2">
+		<p id="p_4">Thisshowsaproblemwithaverylongword</p>		
+	</div>
 
 </body>
 </html>
