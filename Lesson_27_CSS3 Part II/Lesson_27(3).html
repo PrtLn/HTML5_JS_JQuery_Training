@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lesson 27</title>
+
+	<style>
+	/* Transitions */
+		div {
+			width: 200px;
+			height: 20px;
+			margin: 50px;
+				background: black;
+				color: white;
+				padding: 5px;
+				transition: height 3s, color 2s, background 2s, border 2s;
+		}
+		#div2 {
+			background: orange;
+			color: grey;
+				transition-delay: 1s;
+				transition-timing-function: ease-in-out;
+		}
+		#div3 {
+			background: red;
+			color: white;
+				transition: height 3s ease-in-out, color 2s linear 1s, background 2s ease-in 2s, border 1s ease-out 3s;
+		}
+
+		div:hover, #div2:hover, #div3:hover {
+			background: white;
+			color: black;
+			border: 1px solid black;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="div1">Hover to expand</div>
+	<div id="div2">Hover to expand</div>
+	<div id="div3">Hover to expand</div>
+	
+</body>
+</html>
