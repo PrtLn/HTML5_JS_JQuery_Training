@@ -89,3 +89,27 @@ footer {
 	color: #333333 !important;
 }
 
+/* Selectors in the CSS3 */
+
+thead ~ tfoot {
+	font-size: 0.75em;
+	text-align: left;
+}
+thead + tbody {
+	color: #777;
+}
+[required] {
+	color: gray;
+}
+[name="emailAddress"] {
+	font-size: 1.2em;
+}
+[name^="email"] {
+	color: green;
+}
+label[for$="Name"] {
+	text-decoration: underline;
+}
+[style*="display"] {
+	font-style: italic;
+}
