@@ -4,11 +4,39 @@
 	<meta charset="utf-8">
 	<title>Lesson 26</title>
 
+	<style>
+		/* CSS Borders */
+		div {
+			margin: 50px;
+			width: 300px;
+			height: 300px;
+			background: #cdcdcd;
+
+			/*border: 1px solid #555555;
+			border-radius: 20px;*/
+
+			border: 30px solid transparent;
+			border-image: url("border.png") 30 30 30 30 stretch;
+
+			/*border: 30px solid transparent;
+			border-image: url("border.png") 5% 5% 30% 30% repeat;*/
+
+			/*border: 30px solid transparent;
+			border-image: url("border.png") 30% 30% 30% 30% round;*/
+
+			box-shadow: 10px -10px 10px #888888; /* horizontalPosition, verticalPosition, blur, color */
+
+			box-shadow: 0 0 10px 10px #888888 inset;
+
+		}
+	</style>
+
 	<script src="jquery-3.1.1.min.js"></script>
     <!-- <script src=http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script> -->
 </head>
 <body>
-	
+
+	<div></div>
 	
 </body>
 </html>
