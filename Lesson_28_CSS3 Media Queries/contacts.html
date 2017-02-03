@@ -11,7 +11,7 @@
          <script src="contacts.js"></script>		 
 </head>
 <body>
-	<header>Contacts</header>
+	<header class="noprint">Contacts</header>
 
 	<main id="contactScreen">
 
@@ -99,8 +99,9 @@
 			<caption>Sales leads</caption>
 		</table>
 
-		<div class="controls">
-		    <a href="#" id="addContact">Add a new contact</a>
+		<div class="controls noprint">
+		    <a href="#" id="addContact">Add a new contact</a><p></p>
+		    <a onClick="window.print()" href="#">Print</a>
 		</div>
 
 	</section>
