@@ -88,20 +88,3 @@ footer {
 
 	color: #333333 !important;
 }
-
-/* Adding Media Queries */
-@media print {
-	.noprint {
-		display: none;
-	}
-	/* more enhance the view for the print */
-	th {
-		color: black;
-		background: white;
-	}
-	#contactList {
-		border: none;
-		margin: none;
-		padding: none;
-	}
-}

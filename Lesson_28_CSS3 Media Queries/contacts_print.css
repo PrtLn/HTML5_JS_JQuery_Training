@@ -1,0 +1,15 @@
+/* Adding Media Queries */
+@media print {
+	.noprint {
+		display: none;
+	}
+	th {
+		color: black;
+		background: white;
+	}
+	#contactList {
+		border: none;
+		margin: none;
+		padding: none;
+	}
+}
