@@ -1,15 +1,23 @@
 /* Adding Media Queries */
-@media print {
-	.noprint {
-		display: none;
-	}
-	th {
-		color: black;
-		background: white;
-	}
-	#contactList {
-		border: none;
-		margin: none;
-		padding: none;
-	}
+
+.noprint {
+	display: none;
 }
+th {
+	color: black;
+	background: white;
+}
+#contactList {
+	border: none;
+	margin: none;
+	padding: none;
+}
+
+.print_only {
+	display: initial;
+}
+header {
+	font-size: 22px;
+	color: red;
+}
+

@@ -88,3 +88,7 @@ footer {
 
 	color: #333333 !important;
 }
+
+.print_only {
+	display: none;
+}
